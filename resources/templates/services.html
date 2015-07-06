@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <p style="padding-left:1px"><img src="logo_Lexisnexis.png" width="297x" height="80px" /></p>
+
+    <h1 class="page-header">Service Health Dashboard</h1>
+
+    <h3 class="sub-header">Current Status</h3>
+
+    <p th:text="${currentdate}"></p>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service</th>
+
+            <th>Description</th>
+
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="service : ${servicelist}" th:if="${service.status == 'OK'}">
+            <td th:text="${service.name}"></td>
+
+            <td th:text="${service.description}"></td>
+
+            <td th:text="${service.status}"></td>
+          </tr>
+
+          <tr th:each="service : ${servicelist}" th:if="${service.status != 'OK'}" style=
+          "background-color:#f25333">
+            <td th:text="${service.name}"></td>
+
+            <td th:text="${service.description}"></td>
+
+            <td th:text="${service.status}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}

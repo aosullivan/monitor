@@ -1,0 +1,13 @@
+/bin
+/target
+/lib
+/classes
+/checkouts
+pom.xml
+*.jar
+*.class
+/.lein-*
+/.env
+*.log
+.project
+.classpath
