@@ -1,3 +1,0 @@
-07-06 17:55:40 jdbc[2]: exception
-org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
-select * from services [42102-166]

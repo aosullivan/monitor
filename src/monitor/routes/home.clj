@@ -1,5 +1,6 @@
 (ns monitor.routes.home
   (:require [monitor.layout :as layout]
+            [monitor.db.core :as db]
             [compojure.core :refer [defroutes GET]]
             [ring.util.http-response :refer [ok]]
             [clojure.java.io :as io]))
