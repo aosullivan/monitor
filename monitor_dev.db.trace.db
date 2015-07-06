@@ -1,14 +1,14 @@
-07-06 12:33:39 jdbc[3]: exception
+07-06 17:42:44 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
-07-06 12:33:39 jdbc[3]: exception
+07-06 17:42:44 jdbc[3]: exception
 org.h2.jdbc.JdbcBatchUpdateException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:676)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -16,14 +16,14 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
 	at clojure.lang.AFn.applyToHelper(AFn.java:156)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
@@ -43,7 +43,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -71,7 +71,7 @@ DROP TABLE services;
 	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:130)
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:661)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -79,14 +79,14 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
 	at clojure.lang.AFn.applyToHelper(AFn.java:156)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
@@ -106,7 +106,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -121,17 +121,17 @@ DROP TABLE services;
 	at clojure.lang.AFn.applyToHelper(AFn.java:156)
 	at clojure.lang.Var.applyTo(Var.java:700)
 	at clojure.main.main(main.java:37)
-07-06 12:33:40 jdbc[3]: exception
+07-06 17:42:45 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
-07-06 12:33:40 jdbc[3]: exception
+07-06 17:42:45 jdbc[3]: exception
 org.h2.jdbc.JdbcBatchUpdateException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:676)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -139,16 +139,16 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
-	at robert.bruce$retry$fn__18823.invoke(bruce.clj:109)
+	at robert.bruce$retry$fn__18826.invoke(bruce.clj:109)
 	at clojure.core$trampoline.invoke(core.clj:6037)
 	at clojure.core$trampoline.doInvoke(core.clj:6042)
 	at clojure.lang.RestFn.invoke(RestFn.java:439)
@@ -163,7 +163,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -191,7 +191,7 @@ DROP TABLE services;
 	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:130)
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:661)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -199,16 +199,16 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
-	at robert.bruce$retry$fn__18823.invoke(bruce.clj:109)
+	at robert.bruce$retry$fn__18826.invoke(bruce.clj:109)
 	at clojure.core$trampoline.invoke(core.clj:6037)
 	at clojure.core$trampoline.doInvoke(core.clj:6042)
 	at clojure.lang.RestFn.invoke(RestFn.java:439)
@@ -223,7 +223,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -238,17 +238,17 @@ DROP TABLE services;
 	at clojure.lang.AFn.applyToHelper(AFn.java:156)
 	at clojure.lang.Var.applyTo(Var.java:700)
 	at clojure.main.main(main.java:37)
-07-06 12:33:43 jdbc[3]: exception
+07-06 17:42:48 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
-07-06 12:33:43 jdbc[3]: exception
+07-06 17:42:48 jdbc[3]: exception
 org.h2.jdbc.JdbcBatchUpdateException: Table "SERVICES" not found; SQL statement:
 DROP TABLE services;
  [42102-187]
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:676)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -256,16 +256,16 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
-	at robert.bruce$retry$fn__18823.invoke(bruce.clj:109)
+	at robert.bruce$retry$fn__18826.invoke(bruce.clj:109)
 	at clojure.core$trampoline.invoke(core.clj:6037)
 	at clojure.core$trampoline.doInvoke(core.clj:6042)
 	at clojure.lang.RestFn.invoke(RestFn.java:439)
@@ -280,7 +280,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -308,7 +308,7 @@ DROP TABLE services;
 	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:130)
 	at org.h2.jdbc.JdbcStatement.executeBatch(JdbcStatement.java:661)
 	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
-	at clojure.java.jdbc$db_do_commands$fn__18619.invoke(jdbc.clj:675)
+	at clojure.java.jdbc$db_do_commands$fn__18622.invoke(jdbc.clj:675)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:674)
@@ -316,16 +316,16 @@ DROP TABLE services;
 	at clojure.core$apply.invoke(core.clj:636)
 	at clojure.java.jdbc$db_do_commands.doInvoke(jdbc.clj:668)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
-	at migratus.database$down_STAR_$fn__19087.invoke(database.clj:73)
+	at migratus.database$down_STAR_$fn__19090.invoke(database.clj:73)
 	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
 	at clojure.lang.RestFn.invoke(RestFn.java:425)
 	at migratus.database$down_STAR_.invoke(database.clj:66)
 	at clojure.lang.AFn.applyToHelper(AFn.java:165)
 	at clojure.lang.AFn.applyTo(AFn.java:144)
 	at clojure.core$apply.invoke(core.clj:630)
-	at robert.bruce$try_try_again$fn__18830.invoke(bruce.clj:118)
+	at robert.bruce$try_try_again$fn__18833.invoke(bruce.clj:118)
 	at robert.bruce$retry.invoke(bruce.clj:94)
-	at robert.bruce$retry$fn__18823.invoke(bruce.clj:109)
+	at robert.bruce$retry$fn__18826.invoke(bruce.clj:109)
 	at clojure.core$trampoline.invoke(core.clj:6037)
 	at clojure.core$trampoline.doInvoke(core.clj:6042)
 	at clojure.lang.RestFn.invoke(RestFn.java:439)
@@ -340,7 +340,7 @@ DROP TABLE services;
 	at monitor.core$_main.doInvoke(core.clj:37)
 	at clojure.lang.RestFn.invoke(RestFn.java:408)
 	at clojure.lang.Var.invoke(Var.java:379)
-	at user$eval58.invoke(form-init7056742546109149303.clj:1)
+	at user$eval58.invoke(form-init7538614645148746945.clj:1)
 	at clojure.lang.Compiler.eval(Compiler.java:6782)
 	at clojure.lang.Compiler.eval(Compiler.java:6772)
 	at clojure.lang.Compiler.load(Compiler.java:7227)
@@ -355,3 +355,9 @@ DROP TABLE services;
 	at clojure.lang.AFn.applyToHelper(AFn.java:156)
 	at clojure.lang.Var.applyTo(Var.java:700)
 	at clojure.main.main(main.java:37)
+07-06 17:57:15 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
+select * from services [42102-166]
+07-06 17:57:25 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "SERVICES" not found; SQL statement:
+select * from public.services [42102-166]
