@@ -24,22 +24,18 @@
         </thead>
 
         <tbody>
-          <tr th:each="service : ${servicelist}" th:if="${service.status == 'OK'}">
-            <td th:text="${service.name}"></td>
-
-            <td th:text="${service.description}"></td>
-
-            <td th:text="${service.status}"></td>
-          </tr>
-
-          <tr th:each="service : ${servicelist}" th:if="${service.status != 'OK'}" style=
-          "background-color:#f25333">
-            <td th:text="${service.name}"></td>
-
-            <td th:text="${service.description}"></td>
-
-            <td th:text="${service.status}"></td>
-          </tr>
+        
+         {% for service in services %}
+         
+           <tr>
+            <td>{{service.name}}</td>
+            <td>foo</td>
+            <td>OK</td>
+           </tr>
+         
+         
+         {% endfor %}
+        
         </tbody>
       </table>
     </div>
