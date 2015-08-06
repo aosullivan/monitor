@@ -3,7 +3,7 @@
 {% block content %}
 
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <p style="padding-left:1px"><img src="logo_Lexisnexis.png" width="297x" height="80px" /></p>
+    <p style="padding-left:1px"><img src="logo_Lexisnexis.png" height="80px" /></p>
 
     <h1 class="page-header">Service Health Dashboard</h1>
 
@@ -30,7 +30,7 @@
            <tr>
             <td>{{service.name}}</td>
             <td>foo</td>
-            <td>OK</td>
+            <td>{{service.status}}</td>
            </tr>
          
          

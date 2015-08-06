@@ -11,3 +11,4 @@ pom.xml
 *.log
 .project
 .classpath
+monitor_dev.db.trace.db/.nrepl-port
