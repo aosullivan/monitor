@@ -1,8 +1,12 @@
---name:save-service!
+--name:save-service-check!
 -- inserts a service
-insert into services (id, name, url, status)
-values (:id, :name, :url, :status)
+insert into service-checks (id, environment_id, description, updated_date, status)
+values (:id, :environment_id, :description, :updated_date, :status)
 
---name:get-services
--- selects all services
-select * from services
+--name:get-service-checks
+-- selects all services check results
+select * from service-checks
+
+--name:get-environments
+-- selects all services check results
+select * from environments
