@@ -23,4 +23,8 @@ where sc.ENVIRONMENT_ID = e.ID
 -- deletes all environments
 delete from service_checks 
 
+--name:reset-service-check-counter!
+-- reset the auto increment counter
+ALTER TABLE service_checks ALTER COLUMN id RESTART WITH 1
+
 
