@@ -4,3 +4,9 @@ body {
     height: 100%;
     padding-top: 40px;
 }
+.accordion .ui-accordion-header, .noStyleAccordion .ui-accordion-content {
+     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+* {
+     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
