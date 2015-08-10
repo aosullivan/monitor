@@ -1,7 +1,7 @@
---name:save-service-check!
+--name:save-service-check<!
 -- inserts a row into service_check
-insert into service_checks (id, environment_id, description, updated_date, status)
-values (:id, :environment_id, :description, :updated_date, :status)
+insert into service_checks (environment_id, description, updated_date, status)
+values (:environment_id, :description, :updated_date, :status)
 
 --name:get-environments
 -- selects all environments
@@ -10,8 +10,9 @@ select * from environments
 --name:get-service-checks
 -- selects all services check results
 select  e.ID as ENVIRONMENT_ID,
-        e.NAME,
-        sc.DESCRIPTION,
+        sc.ID as SERVICE_CHECK_ID,
+        e.NAME as ENVIRONMENT_NAME,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
         sc.UPDATED_DATE,
         sc.STATUS
 from service_checks sc,

@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS environments
-(id VARCHAR(20) PRIMARY KEY,
+(id bigint PRIMARY KEY,
  name VARCHAR(30),
  status VARCHAR(10));
 --;;

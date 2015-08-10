@@ -1,31 +1,23 @@
 (ns monitor.checks.startup
   (:require [monitor.db.core :as db]))
 
+(defrecord service-check [environment_id description updated_date status])
 
-(def please-wait "WAITING")
+(def service-check1 (->service-check 1 "foo" (new java.util.Date) "WAITING"))
 
-(defrecord check [description status])
+(def service-check2 (->service-check 1 "bar" (new java.util.Date) "WAITING"))
 
-(defrecord service-check [id environment_id description updated_date status])
+(defn new-service-check [desc] (->service-check 1 desc (new java.util.Date) "WAITING")) ;autogen keys
 
-
-(def check1 (->check "Log in" please-wait))
-
-(defn now [] (new java.util.Date))
-
-(now)
-
-(first (db/get-environments))
-
-
-(def service-check1 (->service-check 0, 1, (:description check1) (now) (:status check1)))
+(def service-check1 (new-service-check "foo")) 
 
 service-check1
 
-(db/save-service-check!  service-check1)
+(db/delete-service-checks!)
+
+(db/save-service-check<! service-check1)
 
 (db/get-service-checks)                         
 
-(db/delete-service-checks!)
 
-(+ 1 2)
+

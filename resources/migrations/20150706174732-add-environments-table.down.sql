@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS service_checks;
+DROP TABLE IF EXISTS environments;
