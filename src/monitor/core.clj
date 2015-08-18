@@ -1,5 +1,6 @@
 (ns monitor.core
   (:require [monitor.handler :refer [app init destroy]]
+            [monitor.checks.startup :as startup]
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]
@@ -27,6 +28,10 @@
     (reset! server nil)))
 
 (defn start-app [args]
+  
+  (timbre/info "Reset service checks: " (startup/reset-checks)) 
+  (timbre/info "Setup service checks:" (count (startup/setup-checks)))
+  
   (let [port (parse-port args)]
     (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
     (timbre/info "server is starting on port " port)
