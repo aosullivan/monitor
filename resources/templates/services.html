@@ -1,11 +1,6 @@
 
 {% extends "base.html" %}
 {% block content %}
-
-
-
-
-
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <p style="padding-left:1px"><img src="logo_Lexisnexis.png" height="80px" /></p>
 
@@ -17,48 +12,49 @@
 
     <div id="accordion" class="accordion">
     {% for environment in environments %}
-        <h3>{{environment.name}}</h3>
+        <div class="table-responsive">
+        <table>
+            <thead>
+            <tr>
+              <th style="width: 700px"/>
+              <th/>
+            <tr>
+            </thead>
+            <tr>
+              <td>{{environment.name}}</td>
+              <td>{{environment.status}}</td>
+            </tr>
+            </tbody>
+        </table>
+        </div> 
+    
         <div>
-          {% for service-check in service-checks %}
+            <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Service check</th>
+              <th>Updated date</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            
+            {% for service-check in service-checks %}
         
-            {% ifequal environment.id service-check.environment_id %}
-            <p>{{service-check.service_check_description}}</p>
-            {% endifequal %}
+                {% ifequal environment.id service-check.environment_id %}
+            
+                  <tr>
+                    <td>{{service-check.service_check_description}}</td>
+                    <td>{{service-check.updated_date|date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                    <td>{{service-check.status}}</td>
+                  </tr>
+            
+                {% endifequal %}
           
           {% endfor %}
-          
+          </table>
         </div>
     
     {% endfor %}
     </div>
-    
-      <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-        
-         {% for environment in environments %}
-         
-           <tr>
-            <td>{{environment.name}}</td>
-            <td>{{environment.status}}</td>
-           </tr>
-         
-         {% endfor %}
-        
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
-
-
-  
-
+ 
 {% endblock %}
