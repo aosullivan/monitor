@@ -4,28 +4,6 @@
 
 
 
-<div id="accordion" class="accordion">
-  <h3>Section 1</h3>
-  <div>
-    <p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif">row1</p>
-  </div>
-  <h3>Section 2</h3>
-  <div>
-    <p>row1</p>
-    <p>row2</p>
-  </div>
-  <h3>Section 3</h3>
-  <div>
-    <p>row1</p>
-    <p>row2</p>
-  </div>
-  <h3>Section 4</h3>
-  <div>
-    <p>row1</p>
-    <p>row2</p>
-  </div>
-</div>
-
 
 
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -36,8 +14,25 @@
     {{now|date:longDateTime}}
         
     <h3 class="sub-header">Environments</h3>
+
+    <div id="accordion" class="accordion">
+    {% for environment in environments %}
+        <h3>{{environment.name}}</h3>
+        <div>
+          {% for service-check in service-checks %}
+        
+            {% ifequal environment.id service-check.environment_id %}
+            <p>{{service-check.service_check_description}}</p>
+            {% endifequal %}
+          
+          {% endfor %}
+          
+        </div>
     
-        <div class="table-responsive">
+    {% endfor %}
+    </div>
+    
+      <div class="table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>

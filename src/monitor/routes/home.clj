@@ -10,7 +10,8 @@
     "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))
 
 (defn services-page [{:keys [flash]}]
-  (layout/render "services.html" {:environments (db/get-environments)}))
+  (layout/render "services.html" {:environments   (db/get-environments)
+                                  :service-checks (db/get-service-checks)}))
 
 (defn about-page []
   (layout/render "about.html"))

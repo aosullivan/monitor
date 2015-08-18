@@ -3,10 +3,10 @@
 
 (defrecord service-check [environment_id description updated_date status])
 
-(defn new-service-check [env-id desc] (->service-check env-id desc (new java.util.Date) "WAITING")) ;autogen keys
+(defn new-service-check [env-id desc] (->service-check env-id desc (new java.util.Date) "WAITING")) 
 
 ;eventually these will come from a map that also contains the function to run the check
-(def checks ["Log in to UI as larisab" "Log into database as service account"])
+(def check-descs ["Log in to UI as larisab" "Log into database as service account"])
 
 (db/reset-service-check-counter!)
 
@@ -16,11 +16,8 @@
 
 ;insert a row for each check in each env. 
 (for [env env-ids
-      check checks] 
-  (db/save-service-check<! (new-service-check env check)))   
-
-
-
+      check-desc check-descs] 
+  (db/save-service-check<! (new-service-check env check-desc)))   
 
 (db/get-service-checks)
 
