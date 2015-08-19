@@ -21,7 +21,7 @@
                  [bouncer "0.3.3"]
                  [prone "0.8.2"]
                  [org.clojure/tools.nrepl "0.2.10"]
-
+                 [lib-noir "0.9.9"]
                  [migratus "0.8.2"]
                  [org.clojure/java.jdbc "0.3.7"]
                  [instaparse "1.4.1"]
