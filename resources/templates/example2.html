@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+   <head>
+      <script src="angular.min.js"></script>
+   </head>
+<body>
+
+<script>
+angular.module('monitor', [])
+  .controller('studentController', function ($scope, $http) {
+     var url="data.txt";
+     $http.get(url).success( function(response) {
+                           $scope.students = response;
+                        });
+     });
+</script>
+
+<h2>AngularJS Sample Application</h2>
+{% verbatim %}
+<div ng-app="monitor" ng-controller="studentController">
+
+    <ul>
+        <li ng-repeat="student in students"> {{ student.Name }} </li>
+    </ul>
+
+<table>
+   <tr>
+      <th>Name</th>
+      <th>Roll No</th>
+      <th>Percentage</th>
+   </tr>
+   <tr ng-repeat="student in students">  
+      <td>{{student.Name}}</td>
+      <td>{{student.RollNo}}</td>
+      <td>{{student.Percentage}}</td>
+   </tr>
+</table>
+{% endverbatim %}
+</div>
+
+</body>
+</html>

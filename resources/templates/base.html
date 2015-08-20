@@ -3,7 +3,9 @@
   <head>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Welcome to monitor</title>
-        
+    <head>
+       <script src="angular.min.js"></script>
+    </head>        
   </head>
   <body>
     <!-- navbar -->
@@ -50,6 +52,26 @@
                                      heightStyle: "content"});
       });
     </script>
+    
+
+    
+    <script>
+        var app = angular.module('monitor', []);
+        
+        app.controller('environmentController', function ($scope, $http) {
+             var url="environments/json";
+             $http.get(url).success( function(response) {
+                                   $scope.environments = response;
+                                });
+             });
+                    
+        app.controller('servicecheckController', function ($scope, $http) {
+             var url="service-checks/json";
+             $http.get(url).success( function(response) {
+                                   $scope.serviceChecks = response;
+                                });
+             });     
+    </script>    
     
     {% block page-scripts %}
     {% endblock %}

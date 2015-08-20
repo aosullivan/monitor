@@ -10,12 +10,15 @@
   (layout/render
     "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))
 
+(defn services-page []
+  (layout/render "services2.html" ))
+
 (defn services-page-old [{:keys [flash]}]
   (layout/render "services.html" {:environments   (db/get-environments)
                                   :service-checks (db/get-service-checks)}))
 
-(defn services-page [{:keys [flash]}]
-  (noir/slurp-resource "/example2.html" ))
+(defn helloworld-page []
+  (layout/render "example2.html" ))
 
 (defn about-page []
   (layout/render "about.html"))
@@ -23,8 +26,14 @@
 (defroutes home-routes
   (GET "/" [] (home-page))
   (GET "/about" [] (about-page))
-  (GET "/services" request (services-page request))
+  (GET "/services" request (services-page))
   (GET "/services-old" request (services-page-old request))
+  (GET "/helloworld" request (helloworld-page))
   (GET "/environments/json"  [] {:body (db/get-environments)})
   (GET "/service-checks/json"  [] {:body (db/get-service-checks)}))
 
+(use 'selmer.filters)
+
+(add-filter! :embiginate #(.toUpperCase %))
+
+ (layout/render "{% debug %}" {:foo :bar})
