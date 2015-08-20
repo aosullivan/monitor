@@ -32,8 +32,3 @@
   (GET "/environments/json"  [] {:body (db/get-environments)})
   (GET "/service-checks/json"  [] {:body (db/get-service-checks)}))
 
-(use 'selmer.filters)
-
-(add-filter! :embiginate #(.toUpperCase %))
-
- (layout/render "{% debug %}" {:foo :bar})
