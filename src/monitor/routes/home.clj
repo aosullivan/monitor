@@ -11,11 +11,11 @@
     "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))
 
 (defn services-page []
-  (layout/render "services2.html" ))
+  (layout/render "services-angular.html" ))
 
 (defn services-page-old [{:keys [flash]}]
-  (layout/render "services.html" {:environments   (db/get-environments)
-                                  :service-checks (db/get-service-checks)}))
+  (layout/render "services-selmer.html" {:environments   (db/get-environments)
+                                         :service-checks (db/get-service-checks)}))
 
 (defn helloworld-page []
   (layout/render "example2.html" ))
