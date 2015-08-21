@@ -1,13 +1,13 @@
-
 {% extends "base.html" %}
-
 
 {% block content %}
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <p style="padding-left:1px"><img src="logo_Lexisnexis.png" height="80px" /></p>
 
-  <h1 class="page-header">Environment Health Dashboard </h1> {{now|date:longDateTime}} {% verbatim %}
+  <h1 class="page-header">Environment Health Dashboard </h1> {{now|date:longDateTime}} 
+  
+  {% verbatim %}
 
   <h3 class="sub-header">Environments</h3>
 
@@ -31,11 +31,13 @@
                   <th>Status</th>
                 </tr>
               </thead>
+              
+              <!-- TODO actual url request called once for each env repeated ... -->
               <tr ng-repeat="serviceCheck in serviceChecks | filter:{ environment_id: environment.id} ">
-                <td>{{serviceCheck.service_check_id}}</td>
-                <td>{{serviceCheck.service_check_description}}</td>
-                <td>{{serviceCheck.updated_date|date:"yyyy-MM-dd HH:mm:ss"}}</td>
-                <td>{{serviceCheck.status}}</td>
+                  <td>{{serviceCheck.service_check_id}}</td>
+                  <td>{{serviceCheck.service_check_description}}</td>
+                  <td>{{serviceCheck.updated_date|date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                  <td>{{serviceCheck.status}}</td>
               </tr>
 
             </table>
@@ -45,5 +47,11 @@
       </accordion>
     </div>
 
-    {% endverbatim %} {% endblock %}
+    <div ng-controller="servicecheckController">
+        <button ng-click="reload();" >Reload</button>
+    </div>
+
+    {% endverbatim %} 
+    
+{% endblock %}
 

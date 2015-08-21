@@ -23,7 +23,6 @@ To start a web server for the application, run:
 
 Checks
 Align env status to checks status and start at WAITING
-Autorefresh (angular)
 Colours
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO
