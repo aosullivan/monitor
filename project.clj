@@ -1,7 +1,7 @@
 (defproject monitor "0.1.0-SNAPSHOT"
 
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Pings various services and displays results"
+  :url "https://github.com/aosullivan/monitor"
 
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [selmer "0.8.2"]
@@ -26,7 +26,9 @@
                  [org.clojure/java.jdbc "0.3.7"]
                  [instaparse "1.4.1"]
                  [yesql "0.5.0-rc3"]
-                 [com.h2database/h2 "1.4.187"]]
+                 [com.h2database/h2 "1.4.187"]
+                 [com.sybase/jconn4 "26792"]
+                 [sonian/carica "1.1.0"]]
 
   :min-lein-version "2.0.0"
   :uberjar-name "monitor.jar"
@@ -43,7 +45,9 @@
             [lein-ancient "0.6.5"]
             [migratus-lein "0.1.5"]]
   
-
+  :repositories [["snapshots" "http://bamboo.examen.com:8080/artifactory/repo"]
+                 ["releases"  "http://bamboo.examen.com:8080/artifactory/repo"]]
+  
   
   :ring {:handler monitor.handler/app
          :init    monitor.handler/init

@@ -18,6 +18,7 @@ select  e.ID as ENVIRONMENT_ID,
 from service_checks sc,
      environments e
 where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc.ID
 
 --name:delete-service-checks!
 -- deletes all environments

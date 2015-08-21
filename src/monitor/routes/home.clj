@@ -28,7 +28,6 @@
   (GET "/about" [] (about-page))
   (GET "/services" request (services-page))
   (GET "/services-old" request (services-page-old request))
-  (GET "/helloworld" request (helloworld-page))
   (GET "/environments/json"  [] {:body (db/get-environments)})
   (GET "/service-checks/json"  [] {:body (db/get-service-checks)}))
 

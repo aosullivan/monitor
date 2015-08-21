@@ -62,19 +62,16 @@
         app.controller('environmentController', function ($scope, $http) {
                  var envUrl="environments/json";
                  $http.get(envUrl).success( function(response) {
-                                       $scope.environments = response; });
+                     $scope.environments = response; });
                                        
                  var scUrl="service-checks/json";
                  $http.get(scUrl).success( function(response) {
-                                       $scope.serviceChecks = response; });                                       
+                     $scope.serviceChecks = response; });                                       
 
-                 $scope.reload = function() { $http.get(scUrl).success( function(response) { $scope.serviceChecks = response } ); }
+                 $scope.reload = function() { $http.get(scUrl).success( function(response) { 
+                	 $scope.serviceChecks = response } ); }
 
              });
-                    
-        
-
-
         </script>    
     
     {% block page-scripts %}
