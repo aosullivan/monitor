@@ -60,18 +60,21 @@
         var app = angular.module('monitor', ['ui.bootstrap']);
         
         app.controller('environmentController', function ($scope, $http) {
-                 var url="environments/json";
-                 $http.get(url).success( function(response) {
+                 var envUrl="environments/json";
+                 $http.get(envUrl).success( function(response) {
                                        $scope.environments = response; });
+                                       
+                 var scUrl="service-checks/json";
+                 $http.get(scUrl).success( function(response) {
+                                       $scope.serviceChecks = response; });                                       
+
+                 $scope.reload = function() { $http.get(scUrl).success( function(response) { $scope.serviceChecks = response } ); }
+
              });
                     
-        app.controller('servicecheckController', function ($scope, $http) {
-                 var url="service-checks/json";
-                 $scope.load = function(response) { $scope.serviceChecks = response; }
-                 $http.get(url).success( $scope.load );
-                 $scope.reload = function() { $http.get(url).success( $scope.load ); }
-             });     
-             
+        
+
+
         </script>    
     
     {% block page-scripts %}
