@@ -53,7 +53,11 @@ To start a web server for the application, run:
 ## TODO
 
 Checks
+Error handling for jobs
 Align env status to checks status and start at WAITING
 Colours
+Are db connections reused?
+Keep a local cache of existing results and only update if there is a change
+
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO

@@ -1,9 +1,9 @@
-(ns monitor.checks.startup
+(ns monitor.db.queries
   (:require [monitor.db.core :as db]))
 
 (defrecord service-check [environment_id description updated_date status])
 
-(defn new-service-check [env-id desc] (->service-check env-id desc (new java.util.Date) "WAITING")) 
+(defn new-service-check [env-id desc] (->service-check env-id desc (new java.util.Date) "WAITING"))
 
 ;eventually these will come from a map that also contains the function to run the check
 (def check-descs ["Login to UI as 'larisab'" "Log into database as service account"])
@@ -18,9 +18,7 @@
                             check-desc check-descs] 
     (db/save-service-check<! (new-service-check env check-desc))))
 
-
-
-
+(defn update-service-check-status [id status] (db/update-service-check-status! {:id id :status status}))
 
 
 

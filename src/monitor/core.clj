@@ -1,6 +1,6 @@
 (ns monitor.core
   (:require [monitor.handler :refer [app init destroy]]
-            [monitor.checks.startup :as startup]
+            [monitor.db.queries :as queries]
             [monitor.checks.jobs :as jobs]
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
@@ -31,8 +31,8 @@
 
 (defn start-app [args]
   
-  (timbre/info "Reset service checks: " (startup/reset-checks)) 
-  (timbre/info "Setup service checks:" (count (startup/setup-checks)))
+  (timbre/info "Reset service checks: " (queries/reset-checks)) 
+  (timbre/info "Setup service checks:" (count (queries/setup-checks)))
   (jobs/start-jobs)
   
   (let [port (parse-port args)]

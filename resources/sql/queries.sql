@@ -3,6 +3,12 @@
 insert into service_checks (environment_id, description, updated_date, status)
 values (:environment_id, :description, :updated_date, :status)
 
+--name:update-service-check-status!
+-- updates the service-check status
+update service_checks 
+set status = :status 
+where id = :id
+
 --name:get-environments
 -- selects all environments
 select * from environments

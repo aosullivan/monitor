@@ -16,10 +16,6 @@
 (defn services-page-old [{:keys [flash]}]
   (layout/render "services-selmer.html" {:environments   (db/get-environments)
                                          :service-checks (db/get-service-checks)}))
-
-(defn helloworld-page []
-  (layout/render "example2.html" ))
-
 (defn about-page []
   (layout/render "about.html"))
 
