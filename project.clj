@@ -28,7 +28,8 @@
                  [yesql "0.5.0-rc3"]
                  [com.h2database/h2 "1.4.187"]
                  [com.sybase/jconn4 "26792"]
-                 [sonian/carica "1.1.0"]]
+                 [sonian/carica "1.1.0"]
+                 [clojurewerkz/quartzite "2.0.0"]]
 
   :min-lein-version "2.0.0"
   :uberjar-name "monitor.jar"

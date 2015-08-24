@@ -1,11 +1,13 @@
 (ns monitor.core
   (:require [monitor.handler :refer [app init destroy]]
             [monitor.checks.startup :as startup]
+            [monitor.checks.jobs :as jobs]
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]
             [taoensso.timbre :as timbre]
             [environ.core :refer [env]])
+  
   (:gen-class))
 
 (defonce server (atom nil))
@@ -31,6 +33,7 @@
   
   (timbre/info "Reset service checks: " (startup/reset-checks)) 
   (timbre/info "Setup service checks:" (count (startup/setup-checks)))
+  (jobs/start-jobs)
   
   (let [port (parse-port args)]
     (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
