@@ -5940,3 +5940,34 @@ Caused by: java.io.EOFException
 	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
 	at org.h2.store.FileStore.readFully(FileStore.java:273)
 	... 20 more
+08-24 18:05:03 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.RSQLManager.closeExitingHolder(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more

@@ -1,30 +1,32 @@
 (ns monitor.checks.jobs
   (:require [monitor.db.queries :as queries]
             [monitor.checks.sql :as sql]
+            [carica.core :refer [config]]
             [taoensso.timbre :as timbre]
-            [clojurewerkz.quartzite.scheduler :as qs]
-            [clojurewerkz.quartzite.triggers :as t]
-            [clojurewerkz.quartzite.jobs :as j]
-            [clojurewerkz.quartzite.jobs :refer [defjob]]
-            [clojurewerkz.quartzite.schedule.daily-interval :refer [schedule monday-through-friday
-                                                                    starting-daily-at time-of-day ending-daily-at
-                                                                    with-interval-in-seconds]]))     
+            [immutant.scheduling :refer (every at in until limit cron) :as sch]
+            [immutant.util       :as util]
+            [immutant.scheduling.joda :as joda]
+            clj-time.core
+            clj-time.periodic))     
   
-  (defjob SqlCheck
-    [ctx]
-    
-    (let [status (if (sql/check-select :qa6) "OK!" "BROKEN")]
+  (defn sql-db-check-job [env]
+    (let [status (if (sql/check-select env) "OK" "BROKEN")]
       (queries/update-service-check-status 3 status)
-      (timbre/info "Checked q6 database connection:" status)))
+      (timbre/info env " database connection:" status)))
+
+  (defn every-3s-lazy-seq [interval offset]
+    (let [at (clj-time.core/plus (clj-time.core/now) 
+                                 (clj-time.core/seconds offset)) ;now plus one sec
+          every (clj-time.core/seconds interval)]
+      (clj-time.periodic/periodic-seq at every)))
   
-  (defn start-jobs []  
-    (let [s   (-> (qs/initialize) qs/start)
-          job (j/build
-              (j/of-type SqlCheck)
-              (j/with-identity (j/key "jobs.sqlcheck.1")))
-          trigger (t/build
-                  (t/with-identity (t/key "triggers.mon.1"))
-                  (t/start-now)
-                  (t/with-schedule (schedule
-                                  (with-interval-in-seconds 5))))]
-    (qs/schedule s job trigger)))
+  (defn start-jobs [] 
+    (let [beep (joda/schedule-seq #(sql-db-check-job :qa6) (every-3s-lazy-seq 3 0))
+          boop (joda/schedule-seq #(println "boop") (every-3s-lazy-seq 3 2))]
+      (sch/schedule
+        (fn []
+          (println "unscheduling beep & boop")
+          (sch/stop beep)
+          (sch/stop boop))
+        (in 5 :seconds))))
+

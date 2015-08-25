@@ -29,7 +29,7 @@
                  [com.h2database/h2 "1.4.187"]
                  [com.sybase/jconn4 "26792"]
                  [sonian/carica "1.1.0"]
-                 [clojurewerkz/quartzite "2.0.0"]]
+                 [org.immutant/immutant "2.0.2"]]
 
   :min-lein-version "2.0.0"
   :uberjar-name "monitor.jar"
