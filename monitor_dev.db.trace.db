@@ -5971,3 +5971,1148 @@ Caused by: java.io.EOFException
 	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
 	at org.h2.store.FileStore.readFully(FileStore.java:273)
 	... 19 more
+08-25 17:08:57 database: close
+org.h2.message.DbException: File corrupted while reading record: "index not found 24". Possible solution: use the recovery tool [90030-187]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.PageStore.getPage(PageStore.java:813)
+	at org.h2.store.PageStore.compact(PageStore.java:710)
+	at org.h2.store.PageStore.compact(PageStore.java:538)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeNoArgInstanceMember(Reflector.java:313)
+	at migratus.database$disconnect_STAR_.invoke(database.clj:172)
+	at migratus.database.Database.disconnect(database.clj:239)
+	at migratus.core$run.invoke(core.clj:30)
+	at migratus.core$rollback.invoke(core.clj:106)
+	at user$eval1565.invoke(form-init7235920106482146415.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6772)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7165)
+	at clojure.main$load_script.invoke(main.clj:275)
+	at clojure.main$init_opt.invoke(main.clj:280)
+	at clojure.main$initialize.invoke(main.clj:308)
+	at clojure.main$null_opt.invoke(main.clj:343)
+	at clojure.main$main.doInvoke(main.clj:421)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: org.h2.jdbc.JdbcSQLException: File corrupted while reading record: "index not found 24". Possible solution: use the recovery tool [90030-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 35 more
+08-25 17:09:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10)
+PRIMARY KEY ([*]ID) "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10)
+PRIMARY KEY (id) [42001-187]
+08-25 17:09:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10)
+PRIMARY KEY ([*]ID); "; expected "HASH, AUTO_INCREMENT, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10)
+PRIMARY KEY (id); [42001-187]
+08-25 17:09:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID);[*] "; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id); [42001-187]
+08-25 17:10:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID);[*] "; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id); [42001-187]
+08-25 17:10:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID);[*] "; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id); [42001-187]
+08-25 17:10:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10);[*] "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ description VARCHAR(30),
+ status VARCHAR(10); [42001-187]
+08-25 17:11:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ KEY VARCHAR(10),
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID);[*] "; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ key VARCHAR(10),
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id); [42001-187]
+08-25 17:12:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(ID BIGINT AUTO_INCREMENT NOT NULL,
+ KEY VARCHAR(10),
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID) [*]"; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(id bigint AUTO_INCREMENT NOT NULL,
+ key VARCHAR(10),
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id) [42001-187]
+08-25 17:12:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(KEY VARCHAR(10),
+ DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID) [*]"; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(key VARCHAR(10),
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id) [42001-187]
+08-25 17:12:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(DESCRIPTION VARCHAR(30),
+ STATUS VARCHAR(10),
+PRIMARY KEY (ID) [*]"; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id) [42001-187]
+08-25 17:12:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS ENVIRONMENTS
+(STATUS VARCHAR(10),
+PRIMARY KEY (ID) [*]"; expected "INDEX, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(status VARCHAR(10),
+PRIMARY KEY (id) [42001-187]
+08-25 17:12:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ID" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS environments
+(status VARCHAR(10),
+PRIMARY KEY (id)) [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:648)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:74)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:107)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:171)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:130)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor23.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-25 17:14:12 database: close
+org.h2.message.DbException: File corrupted while reading record: "index not found 24". Possible solution: use the recovery tool [90030-187]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.PageStore.getPage(PageStore.java:813)
+	at org.h2.store.PageStore.compact(PageStore.java:710)
+	at org.h2.store.PageStore.compact(PageStore.java:538)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.RSQLManager.closeExitingHolder(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: File corrupted while reading record: "index not found 24". Possible solution: use the recovery tool [90030-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 19 more
+08-25 17:27:59 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:28:13 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:31:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "a" not found; SQL statement:
+insert into environments (key, description, status)
+values ("a", "foo", "ok") [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.command.dml.Insert.prepare(Insert.java:270)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor23.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-25 17:32:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'aced000573720014636c6f6a7572652e6c616e672e4b6579776f7264e2c938d935c6aefd0200024900066861736865714c000373796d7400154c636c6f6a757... (440)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 17:32:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'aced000573720014636c6f6a7572652e6c616e672e4b6579776f7264e2c938d935c6aefd0200024900066861736865714c000373796d7400154c636c6f6a757... (440)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 17:33:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'aced000573720014636c6f6a7572652e6c616e672e4b6579776f7264e2c938d935c6aefd0200024900066861736865714c000373796d7400154c636c6f6a757... (440)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 17:34:49 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:38:35 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:38:49 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:41:28 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:42:17 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:42:30 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:43:27 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:48:46 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:48:56 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 17:49:03 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Column "E.NAME" not found; SQL statement:
+select  e.ID as ENVIRONMENT_ID,
+        sc.ID as SERVICE_CHECK_ID,
+        e.NAME as ENVIRONMENT_NAME,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
+        sc.UPDATED_DATE,
+        sc.STATUS
+from service_checks sc,
+     environments e
+where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc.ID [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Alias.optimize(Alias.java:51)
+	at org.h2.command.dml.Select.prepare(Select.java:877)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:72)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:277)
+	at clojure.java.jdbc$prepare_statement.doInvoke(jdbc.clj:457)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invoke(core.clj:634)
+	at clojure.java.jdbc$db_query_with_resultset.invoke(jdbc.clj:799)
+	at clojure.java.jdbc$query.doInvoke(jdbc.clj:832)
+	at clojure.lang.RestFn.invoke(RestFn.java:636)
+	at yesql.generate$query_handler.invoke(generate.clj:90)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:134)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:133)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at monitor.routes.home$fn__5348.invoke(home.clj:28)
+	at compojure.core$make_route$fn__1888.invoke(core.clj:113)
+	at compojure.core$pre_init$fn__1974.invoke(core.clj:239)
+	at ring.middleware.anti_forgery$wrap_anti_forgery$fn__4286.invoke(anti_forgery.clj:90)
+	at compojure.core$pre_init$fn__1976$fn__1977.invoke(core.clj:242)
+	at compojure.core$wrap_route_middleware$fn__1884.invoke(core.clj:102)
+	at compojure.core$if_route$fn__1863.invoke(core.clj:41)
+	at compojure.core$if_method$fn__1855.invoke(core.clj:27)
+	at compojure.core$routing$fn__1894.invoke(core.clj:127)
+	at clojure.core$some.invoke(core.clj:2570)
+	at compojure.core$routing.doInvoke(core.clj:127)
+	at clojure.lang.RestFn.applyTo(RestFn.java:139)
+	at clojure.core$apply.invoke(core.clj:632)
+	at compojure.core$routes$fn__1898.invoke(core.clj:132)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at compojure.core$wrap_routes$fn__1982.invoke(core.clj:250)
+	at compojure.core$routing$fn__1894.invoke(core.clj:127)
+	at clojure.core$some.invoke(core.clj:2570)
+	at compojure.core$routing.doInvoke(core.clj:127)
+	at clojure.lang.RestFn.applyTo(RestFn.java:139)
+	at clojure.core$apply.invoke(core.clj:632)
+	at compojure.core$routes$fn__1898.invoke(core.clj:132)
+	at selmer.middleware$wrap_error_page$fn__14313.invoke(middleware.clj:9)
+	at prone.middleware$wrap_exceptions$fn__14478.invoke(middleware.clj:81)
+	at ring.middleware.session_timeout$wrap_idle_session_timeout$fn__15957.invoke(session_timeout.clj:25)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_response$wrap_format_response$fn__16375.invoke(format_response.clj:175)
+	at ring.middleware.flash$wrap_flash$fn__14537.invoke(flash.clj:35)
+	at ring.middleware.session$wrap_session$fn__15545.invoke(session.clj:98)
+	at ring.middleware.keyword_params$wrap_keyword_params$fn__15579.invoke(keyword_params.clj:35)
+	at ring.middleware.nested_params$wrap_nested_params$fn__15629.invoke(nested_params.clj:84)
+	at ring.middleware.multipart_params$wrap_multipart_params$fn__15720.invoke(multipart_params.clj:118)
+	at ring.middleware.params$wrap_params$fn__15746.invoke(params.clj:64)
+	at ring.middleware.cookies$wrap_cookies$fn__15424.invoke(cookies.clj:158)
+	at ring.middleware.absolute_redirects$wrap_absolute_redirects$fn__15884.invoke(absolute_redirects.clj:36)
+	at ring.middleware.resource$wrap_resource$fn__15776.invoke(resource.clj:26)
+	at ring.middleware.content_type$wrap_content_type$fn__15841.invoke(content_type.clj:30)
+	at ring.middleware.default_charset$wrap_default_charset$fn__15861.invoke(default_charset.clj:26)
+	at ring.middleware.not_modified$wrap_not_modified$fn__15822.invoke(not_modified.clj:44)
+	at ring.middleware.x_headers$wrap_xss_protection$fn__14515.invoke(x_headers.clj:71)
+	at ring.middleware.x_headers$wrap_frame_options$fn__14503.invoke(x_headers.clj:38)
+	at ring.middleware.x_headers$wrap_content_type_options$fn__14509.invoke(x_headers.clj:53)
+	at monitor.middleware$wrap_servlet_context$fn__16452.invoke(middleware.clj:28)
+	at monitor.middleware$wrap_internal_error$fn__16458.invoke(middleware.clj:33)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at ring.middleware.reload$wrap_reload$fn__19529.invoke(reload.clj:22)
+	at qbits.jet.server$make_handler$fn__19036.invoke(server.clj:70)
+	at qbits.jet.server.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle(Unknown Source)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:118)
+	at org.eclipse.jetty.server.Server.handle(Server.java:515)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:291)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:238)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:57)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:191)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:745)
+08-25 17:49:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "E.NAME" not found; SQL statement:
+select  e.ID as ENVIRONMENT_ID,
+        sc.ID as SERVICE_CHECK_ID,
+        e.NAME as ENVIRONMENT_NAME,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
+        sc.UPDATED_DATE,
+        sc.STATUS
+from service_checks sc,
+     environments e
+where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc.ID [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Alias.optimize(Alias.java:51)
+	at org.h2.command.dml.Select.prepare(Select.java:877)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:72)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:277)
+	at clojure.java.jdbc$prepare_statement.doInvoke(jdbc.clj:457)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invoke(core.clj:634)
+	at clojure.java.jdbc$db_query_with_resultset.invoke(jdbc.clj:799)
+	at clojure.java.jdbc$query.doInvoke(jdbc.clj:832)
+	at clojure.lang.RestFn.invoke(RestFn.java:636)
+	at yesql.generate$query_handler.invoke(generate.clj:90)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:134)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:133)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at monitor.routes.home$fn__5348.invoke(home.clj:28)
+	at compojure.core$make_route$fn__1888.invoke(core.clj:113)
+	at compojure.core$pre_init$fn__1974.invoke(core.clj:239)
+	at ring.middleware.anti_forgery$wrap_anti_forgery$fn__4286.invoke(anti_forgery.clj:90)
+	at compojure.core$pre_init$fn__1976$fn__1977.invoke(core.clj:242)
+	at compojure.core$wrap_route_middleware$fn__1884.invoke(core.clj:102)
+	at compojure.core$if_route$fn__1863.invoke(core.clj:41)
+	at compojure.core$if_method$fn__1855.invoke(core.clj:27)
+	at compojure.core$routing$fn__1894.invoke(core.clj:127)
+	at clojure.core$some.invoke(core.clj:2570)
+	at compojure.core$routing.doInvoke(core.clj:127)
+	at clojure.lang.RestFn.applyTo(RestFn.java:139)
+	at clojure.core$apply.invoke(core.clj:632)
+	at compojure.core$routes$fn__1898.invoke(core.clj:132)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at compojure.core$wrap_routes$fn__1982.invoke(core.clj:250)
+	at compojure.core$routing$fn__1894.invoke(core.clj:127)
+	at clojure.core$some.invoke(core.clj:2570)
+	at compojure.core$routing.doInvoke(core.clj:127)
+	at clojure.lang.RestFn.applyTo(RestFn.java:139)
+	at clojure.core$apply.invoke(core.clj:632)
+	at compojure.core$routes$fn__1898.invoke(core.clj:132)
+	at selmer.middleware$wrap_error_page$fn__14313.invoke(middleware.clj:9)
+	at prone.middleware$wrap_exceptions$fn__14478.invoke(middleware.clj:81)
+	at ring.middleware.session_timeout$wrap_idle_session_timeout$fn__15957.invoke(session_timeout.clj:25)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_params$wrap_format_params$fn__16236.invoke(format_params.clj:113)
+	at ring.middleware.format_response$wrap_format_response$fn__16375.invoke(format_response.clj:175)
+	at ring.middleware.flash$wrap_flash$fn__14537.invoke(flash.clj:35)
+	at ring.middleware.session$wrap_session$fn__15545.invoke(session.clj:98)
+	at ring.middleware.keyword_params$wrap_keyword_params$fn__15579.invoke(keyword_params.clj:35)
+	at ring.middleware.nested_params$wrap_nested_params$fn__15629.invoke(nested_params.clj:84)
+	at ring.middleware.multipart_params$wrap_multipart_params$fn__15720.invoke(multipart_params.clj:118)
+	at ring.middleware.params$wrap_params$fn__15746.invoke(params.clj:64)
+	at ring.middleware.cookies$wrap_cookies$fn__15424.invoke(cookies.clj:158)
+	at ring.middleware.absolute_redirects$wrap_absolute_redirects$fn__15884.invoke(absolute_redirects.clj:36)
+	at ring.middleware.resource$wrap_resource$fn__15776.invoke(resource.clj:26)
+	at ring.middleware.content_type$wrap_content_type$fn__15841.invoke(content_type.clj:30)
+	at ring.middleware.default_charset$wrap_default_charset$fn__15861.invoke(default_charset.clj:26)
+	at ring.middleware.not_modified$wrap_not_modified$fn__15822.invoke(not_modified.clj:44)
+	at ring.middleware.x_headers$wrap_xss_protection$fn__14515.invoke(x_headers.clj:71)
+	at ring.middleware.x_headers$wrap_frame_options$fn__14503.invoke(x_headers.clj:38)
+	at ring.middleware.x_headers$wrap_content_type_options$fn__14509.invoke(x_headers.clj:53)
+	at monitor.middleware$wrap_servlet_context$fn__16452.invoke(middleware.clj:28)
+	at monitor.middleware$wrap_internal_error$fn__16458.invoke(middleware.clj:33)
+	at clojure.lang.Var.invoke(Var.java:379)
+	at ring.middleware.reload$wrap_reload$fn__19529.invoke(reload.clj:22)
+	at qbits.jet.server$make_handler$fn__19036.invoke(server.clj:70)
+	at qbits.jet.server.proxy$org.eclipse.jetty.server.handler.AbstractHandler$ff19274a.handle(Unknown Source)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:118)
+	at org.eclipse.jetty.server.Server.handle(Server.java:515)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:291)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:238)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:57)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:191)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:126)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:745)
+08-25 17:49:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "E.NAME" not found; SQL statement:
+select  e.ID as ENVIRONMENT_ID,
+        sc.ID as SERVICE_CHECK_ID,
+        e.NAME as ENVIRONMENT_NAME,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
+        sc.UPDATED_DATE,
+        sc.STATUS
+from service_checks sc,
+     environments e
+where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc.ID [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Alias.optimize(Alias.java:51)
+	at org.h2.command.dml.Select.prepare(Select.java:877)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at com.rp.sql.SQLManager.executeSelect(Unknown Source)
+	at com.rp.sql.SQLManager.executeSelect(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeSelect(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeQuery(Unknown Source)
+	at com.rp.gui.database.QueryRunner.executeQuery(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor23.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-25 17:50:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT  E.ID AS ENVIRONMENT_ID,
+        SC.ID AS SERVICE_CHECK_ID,
+        E.DESCRIPTION AS ENVIRONMENT_DESCRIPTION,
+        SC.DESCRIPTION AS SERVICE_CHECK_DESCRIPTION,
+        SC.UPDATED_DATE,
+        SC.STATUS
+FROM SERVICE_CHECKS SC,
+     ENVIRONMENTS E
+WHERE SC.ENVIRONMENT_ID = E.ID
+ORDER BY E.ID, SC. [*]"; expected "identifier"; SQL statement:
+select  e.ID as ENVIRONMENT_ID,
+        sc.ID as SERVICE_CHECK_ID,
+        e.DESCRIPTION as ENVIRONMENT_DESCRIPTION,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
+        sc.UPDATED_DATE,
+        sc.STATUS
+from service_checks sc,
+     environments e
+where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc. [42001-187]
+08-25 17:50:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT  E.ID AS ENVIRONMENT_ID,
+        SC.ID AS SERVICE_CHECK_ID,
+        E.DESCRIPTION AS ENVIRONMENT_DESCRIPTION,
+        SC.DESCRIPTION AS SERVICE_CHECK_DESCRIPTION,
+        SC.UPDATED_DATE,
+        SC.STATUS
+FROM SERVICE_CHECKS SC,
+     ENVIRONMENTS E
+WHERE SC.ENVIRONMENT_ID = E.ID
+ORDER BY E.ID, SC. [*]"; expected "identifier"; SQL statement:
+select  e.ID as ENVIRONMENT_ID,
+        sc.ID as SERVICE_CHECK_ID,
+        e.DESCRIPTION as ENVIRONMENT_DESCRIPTION,
+        sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
+        sc.UPDATED_DATE,
+        sc.STATUS
+from service_checks sc,
+     environments e
+where sc.ENVIRONMENT_ID = e.ID
+order by e.ID, sc. [42001-187]
+08-25 17:59:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'CouncelLink QA6' (15)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 17:59:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'CouncelLink QA6' (15)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 17:59:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "KEY VARCHAR(10)": "'CouncelLink QA6' (15)"; SQL statement:
+insert into environments (key, description, status)
+values (?, ?, ?) [22001-187]
+08-25 18:07:08 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 18:08:00 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 18:08:26 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 20 more
+08-25 18:08:59 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more
+08-25 18:13:03 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more
+08-25 18:13:29 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more
+08-25 18:16:02 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more
+08-25 18:24:29 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.readFully(FileStore.java:275)
+	at org.h2.store.PageStore.readPage(PageStore.java:1325)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:251)
+	at org.h2.store.PageLog.free(PageLog.java:213)
+	at org.h2.store.PageStore.compact(PageStore.java:498)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1332)
+	at org.h2.engine.Database.close(Database.java:1262)
+	at org.h2.engine.Database.removeSession(Database.java:1146)
+	at org.h2.engine.Session.close(Session.java:712)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:384)
+	at com.rp.sql.SQLManager.close(Unknown Source)
+	at com.rp.gui.database.action.DisconnectAction.doDisconnect(Unknown Source)
+	at com.rp.gui.database.action.ReconnectAction.reconnect(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "C:/workspace-clj/monitor/monitor_dev.db.h2.db" [90031-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 22 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:358)
+	at org.h2.store.FileStore.readFully(FileStore.java:273)
+	... 19 more

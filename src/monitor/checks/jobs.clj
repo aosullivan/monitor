@@ -12,7 +12,7 @@
   (defn sql-db-check-job [env]
     (let [status (if (sql/check-select env) "OK" "BROKEN")]
       (queries/update-service-check-status 3 status)
-      (timbre/info env " database connection:" status)))
+      (timbre/info env "database connection:" status)))
 
   (defn every-3s-lazy-seq [interval offset]
     (let [at (clj-time.core/plus (clj-time.core/now) 
@@ -21,8 +21,8 @@
       (clj-time.periodic/periodic-seq at every)))
   
   (defn start-jobs [] 
-    (let [beep (joda/schedule-seq #(sql-db-check-job :qa6) (every-3s-lazy-seq 3 0))
-          boop (joda/schedule-seq #(println "boop") (every-3s-lazy-seq 3 2))]
+    (let [beep (joda/schedule-seq #(sql-db-check-job :qa6) (every-3s-lazy-seq 10 0))
+          boop (joda/schedule-seq #(println "boop") (every-3s-lazy-seq 10 2))]
       (sch/schedule
         (fn []
           (println "unscheduling beep & boop")
@@ -30,3 +30,4 @@
           (sch/stop boop))
         (in 5 :seconds))))
 
+ 

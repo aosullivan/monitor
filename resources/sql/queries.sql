@@ -9,15 +9,11 @@ update service_checks
 set status = :status 
 where id = :id
 
---name:get-environments
--- selects all environments
-select * from environments
-
 --name:get-service-checks
 -- selects all services check results
 select  e.ID as ENVIRONMENT_ID,
         sc.ID as SERVICE_CHECK_ID,
-        e.NAME as ENVIRONMENT_NAME,
+        e.DESCRIPTION as ENVIRONMENT_DESCRIPTION,
         sc.DESCRIPTION as SERVICE_CHECK_DESCRIPTION,
         sc.UPDATED_DATE,
         sc.STATUS
@@ -27,11 +23,28 @@ where sc.ENVIRONMENT_ID = e.ID
 order by e.ID, sc.ID
 
 --name:delete-service-checks!
--- deletes all environments
+-- deletes all service checks
 delete from service_checks 
 
 --name:reset-service-check-counter!
 -- reset the auto increment counter
 ALTER TABLE service_checks ALTER COLUMN id RESTART WITH 1
+
+--name:reset-environment-counter!
+-- reset the auto increment counter
+ALTER TABLE environments ALTER COLUMN id RESTART WITH 1
+
+--name:delete-environments!
+-- deletes all environments
+delete from environments 
+
+--name:save-environment<!
+-- inserts a row into environment
+insert into environments (key, description, status)
+values (:key, :description, :status)
+
+--name:get-environments
+-- selects all environments
+select * from environments
 
 

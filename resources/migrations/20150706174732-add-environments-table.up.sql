@@ -1,10 +1,7 @@
 CREATE TABLE IF NOT EXISTS environments
-(id bigint PRIMARY KEY,
- name VARCHAR(30),
- status VARCHAR(10));
---;;
- INSERT INTO environments (id, name, status) 
- VALUES (1, 'CouncelLink QA6', 'OK');
---;;
- INSERT INTO environments (id, name, status) 
- VALUES (2, 'CouncelLink QA9', 'OK');
+(id bigint AUTO_INCREMENT NOT NULL,
+ key VARCHAR(10),
+ description VARCHAR(30),
+ status VARCHAR(10),
+PRIMARY KEY (id));
+

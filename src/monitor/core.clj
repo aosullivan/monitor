@@ -31,7 +31,8 @@
 
 (defn start-app [args]
   
-  (timbre/info "Reset service checks: " (queries/reset-checks)) 
+  (timbre/info "Reset data tables") (queries/reset-checks)
+  (timbre/info "Setup environments:" (count (queries/setup-envs)))
   (timbre/info "Setup service checks:" (count (queries/setup-checks)))
   (jobs/start-jobs)
   
