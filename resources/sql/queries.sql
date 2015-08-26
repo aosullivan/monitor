@@ -1,7 +1,7 @@
 --name:save-service-check<!
 -- inserts a row into service_check
-insert into service_checks (environment_id, description, updated_date, status)
-values (:environment_id, :description, :updated_date, :status)
+insert into service_checks (environment_id, service_check_id, description, updated_date, status)
+values (:environment_id, :service_check_id, :description, :updated_date, :status)
 
 --name:update-service-check-status!
 -- updates the service-check status
@@ -47,4 +47,8 @@ values (:key, :description, :status)
 -- selects all environments
 select * from environments
 
-
+--name:get-environment-id-from-key
+-- selects an for a specific environment by its key
+select id 
+from environments
+where key = :key

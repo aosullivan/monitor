@@ -35,3 +35,6 @@
        (when (< x (count envs))
          (schedule-jobs (nth envs x))
          (recur (+ x 1)))))
+
+;env id from key   
+;(:id (first (queries/get-environment-id-from-key :qa6)))   

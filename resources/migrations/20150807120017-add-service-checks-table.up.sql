@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS service_checks
 (id bigint AUTO_INCREMENT NOT NULL,
  environment_id bigint NOT NULL,
+ service_check_id bigint NOT NULL,
  description VARCHAR(90),
  updated_date TIMESTAMP ,
  status VARCHAR(20),

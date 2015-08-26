@@ -52,13 +52,12 @@ To start a web server for the application, run:
 
 ## TODO
 
+match the checks to its id to update the right one....
 when a check completes, update the date
 web checks
 Error handling for jobs
-Align env status to checks status and start at WAITING
-Colours
+Align env status to checks status and start at WAITING / Colours
 Are db connections reused?
-Keep a local cache of existing results and only update if there is a change
 Print the actual error somewhere on the UI for failed tests
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO
