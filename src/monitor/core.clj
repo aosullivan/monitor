@@ -6,7 +6,8 @@
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]
             [taoensso.timbre :as timbre]
-            [environ.core :refer [env]])
+            [environ.core :refer [env]]
+            [carica.core :refer [config]])
   
   (:gen-class))
 
@@ -31,10 +32,10 @@
 
 (defn start-app [args]
   
-  (timbre/info "Reset data tables") (queries/reset-checks)
+  (timbre/info "Resetting environment status...") (queries/reset-checks)
   (timbre/info "Setup environments:" (count (queries/setup-envs)))
   (timbre/info "Setup service checks:" (count (queries/setup-checks)))
-  (jobs/start-jobs)
+  (jobs/start-jobs (keys (config)))
   
   (let [port (parse-port args)]
     (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))

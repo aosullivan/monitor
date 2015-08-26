@@ -8,6 +8,8 @@
 
 (defn new-environment [env-key desc] (->environment env-key desc "WAITING"))
 
+(defn get-environments [] (db/get-environments))
+
 (defn new-service-check [env-id desc] (->service-check env-id desc (new java.util.Date) "WAITING"))
 
 ;eventually these will come from a map that also contains the function to run the check
@@ -32,9 +34,4 @@
   (for [env env-ids
         check-desc check-descs]
     (db/save-service-check<! (new-service-check env check-desc))))
-
-
-
-
-
 

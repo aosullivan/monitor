@@ -52,7 +52,8 @@ To start a web server for the application, run:
 
 ## TODO
 
-Checks
+when a check completes, update the date
+web checks
 Error handling for jobs
 Align env status to checks status and start at WAITING
 Colours
