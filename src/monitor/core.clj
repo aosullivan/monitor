@@ -1,6 +1,7 @@
 (ns monitor.core
   (:require [monitor.handler :refer [app init destroy]]
             [monitor.db.queries :as queries]
+            [monitor.checks.checks :refer [checks]]
             [monitor.checks.jobs :as jobs]
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
@@ -33,7 +34,7 @@
   
   (timbre/info "Resetting environment status...") (queries/reset-checks)
   (timbre/info "Setup environments:" (count (queries/setup-envs)))
-  (timbre/info "Setup service checks:" (count (queries/setup-checks jobs/checks)))
+  (timbre/info "Setup service checks:" (count (queries/setup-checks checks)))
   (jobs/start-jobs)
   
   (let [port (parse-port args)]
