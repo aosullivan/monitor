@@ -111,3 +111,1364 @@ select * from environments [42102-187]
 08-26 19:19:58 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "ENVIRONMENTS" not found; SQL statement:
 select * from environments [42102-187]
+08-27 15:37:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STATUS" not found; SQL statement:
+select * from status [42102-187]
+08-27 15:37:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STATUS" not found; SQL statement:
+select * from status [42102-187]
+08-27 15:37:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS SC 
+SET SC.STATUS = 'FOO'
+FROM[*] ENVIRONMENTS E
+WHERE SC.SERVICE_CHECK_ID = 1
+AND SC.ENVIRONMENT_ID = E.ID
+AND E.KEY = 'qa6' "; SQL statement:
+update service_checks sc 
+set sc.status = 'FOO'
+from environments e
+where sc.service_check_id = 1
+and sc.ENVIRONMENT_ID = e.ID
+and e.KEY = 'qa6' [42000-187]
+08-27 15:37:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+FROM[*] ENVIRONMENTS E
+WHERE SC.SERVICE_CHECK_ID = 1
+AND SC.ENVIRONMENT_ID = E.ID
+AND E.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+from environments e
+where sc.service_check_id = 1
+and sc.ENVIRONMENT_ID = e.ID
+and e.KEY = 'qa6' [42000-187]
+08-27 15:38:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+FROM[*] ENVIRONMENTS E
+WHERE SC.SERVICE_CHECK_ID = 1
+AND SC.ENVIRONMENT_ID = E.ID
+AND E.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+from environments e
+where sc.service_check_id = 1
+and sc.ENVIRONMENT_ID = e.ID
+and e.KEY = 'qa6' [42000-187]
+08-27 15:38:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+FROM[*] ENVIRONMENTS 
+WHERE SC.SERVICE_CHECK_ID = 1
+AND SC.ENVIRONMENT_ID = ENVIRONMENTS.ID
+AND ENVIRONMENTS.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+from environments 
+where sc.service_check_id = 1
+and sc.ENVIRONMENT_ID = environments.ID
+and environments.KEY = 'qa6' [42000-187]
+08-27 15:39:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+FROM[*] ENVIRONMENTS 
+WHERE SC.SERVICE_CHECK_ID = 1 "; SQL statement:
+update service_checks 
+set status = 'FOO'
+from environments 
+where sc.service_check_id = 1 [42000-187]
+08-27 15:39:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "SC.SERVICE_CHECK_ID" not found; SQL statement:
+update service_checks 
+set status = 'FOO'
+where sc.service_check_id = 1 [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Update.prepare(Update.java:181)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-27 15:39:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+FROM[*] ENVIRONMENTS
+WHERE SERVICE_CHECK_ID = 1
+AND SC.ENVIRONMENT_ID = ENVIRONMENTS.ID
+AND ENVIRONMENTS.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+from environments
+where service_check_id = 1
+and sc.ENVIRONMENT_ID = environments.ID
+and environments.KEY = 'qa6' [42000-187]
+08-27 15:40:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+INNER[*] JOIN ON ENVIRONMENTS (SC.ENVIRONMENT_ID = ENVIRONMENTS.ID)
+WHERE SERVICE_CHECK_ID = 1
+AND ENVIRONMENTS.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+inner join on environments (sc.ENVIRONMENT_ID = environments.ID)
+where service_check_id = 1
+and environments.KEY = 'qa6' [42000-187]
+08-27 15:40:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+INNER[*] JOIN ENVIRONMENTS ON  (SC.ENVIRONMENT_ID = ENVIRONMENTS.ID)
+WHERE SERVICE_CHECK_ID = 1 "; SQL statement:
+update service_checks 
+set status = 'FOO'
+inner join environments on  (sc.ENVIRONMENT_ID = environments.ID)
+where service_check_id = 1 [42000-187]
+08-27 15:41:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+INNER[*] JOIN ENVIRONMENTS ON  (ID = SERVICE_CHECKS.ENVIRONMENT_ID )
+WHERE SERVICE_CHECK_ID = 1 "; SQL statement:
+update service_checks 
+set status = 'FOO'
+inner join environments on  (ID = service_checks.ENVIRONMENT_ID )
+where service_check_id = 1 [42000-187]
+08-27 15:41:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE SERVICE_CHECKS 
+SET STATUS = 'FOO'
+INNER[*] JOIN ENVIRONMENTS ON  (ID = SERVICE_CHECKS.ENVIRONMENT_ID )
+WHERE SERVICE_CHECK_ID = 1
+AND ENVIRONMENTS.KEY = 'qa6' "; SQL statement:
+update service_checks 
+set status = 'FOO'
+inner join environments on  (ID = service_checks.ENVIRONMENT_ID )
+where service_check_id = 1
+and environments.KEY = 'qa6' [42000-187]
+08-27 15:45:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ENVIRONMENTS.SERVICE_CHECK_ID" not found; SQL statement:
+update service_checks 
+set status = 'FOO'
+where exists (select 1 from environments where environments.service_check_id = service_checks.id) [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:880)
+	at org.h2.expression.ConditionExists.optimize(ConditionExists.java:39)
+	at org.h2.command.dml.Update.prepare(Update.java:181)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-27 15:46:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Schema "ENVIRONMENTS" not found; SQL statement:
+select * from environments.id [90079-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.getSchema(Parser.java:656)
+	at org.h2.command.Parser.getSchema(Parser.java:663)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1193)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1874)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:1983)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1868)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1689)
+	at org.h2.command.Parser.parseSelect(Parser.java:1677)
+	at org.h2.command.Parser.parsePrepared(Parser.java:433)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at com.rp.sql.SQLManager.getColumnData(Unknown Source)
+	at com.rp.sql.SQLManager.getColumnData(Unknown Source)
+	at com.rp.sql.Navigator.getColumnDataFailOver(Unknown Source)
+	at com.rp.sql.DatabaseNavigator.getColumns(Unknown Source)
+	at com.rp.sql.DatabaseNavigator.getColumns(Unknown Source)
+	at com.rp.gui.database.SQLUtil.getColumnNames(Unknown Source)
+	at com.rp.gui.database.SQLUtil.getColumnLookupValues(Unknown Source)
+	at com.rp.gui.database.SQLUtil.columnLookupThreadCall(Unknown Source)
+	at com.rp.gui.database.SQLUtil.prepareColumnLookup(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-27 15:46:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "ID" not found; SQL statement:
+select * from id [42102-187]
+08-27 15:46:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "ENVIRONMENTS.KEY" not found; SQL statement:
+update service_checks 
+set status = 'BAR'
+where exists (select 1 from environments where service_checks.environment_id = environments.id) 
+and environments.KEY = 'qa6' [42122-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.command.dml.Update.prepare(Update.java:181)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:461)
+	at org.h2.engine.Session.prepareCommand(Session.java:403)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1189)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:126)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:115)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.sql.SQLManager.executeUpdate(Unknown Source)
+	at com.rp.gui.database.QueryUtil.executeQuery(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.rp.gui.util.CustomSwingWorker.construct(Unknown Source)
+	at com.rp.gui.util.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+08-27 15:57:06 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:368)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:351)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2782)
+	at org.h2.mvstore.db.MVTableEngine$Store.<init>(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:98)
+	at org.h2.engine.Database.getPageStore(Database.java:2389)
+	at org.h2.engine.Database.open(Database.java:669)
+	at org.h2.engine.Database.openDatabase(Database.java:266)
+	at org.h2.engine.Database.<init>(Database.java:260)
+	at org.h2.engine.Engine.openSession(Engine.java:60)
+	at org.h2.engine.Engine.openSession(Engine.java:167)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:145)
+	at org.h2.engine.Engine.createSession(Engine.java:128)
+	at org.h2.engine.Engine.createSession(Engine.java:26)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:347)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:108)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at clojure.java.jdbc$get_connection.invoke(jdbc.clj:248)
+	at clojure.java.jdbc$db_query_with_resultset.invoke(jdbc.clj:798)
+	at clojure.java.jdbc$query.doInvoke(jdbc.clj:832)
+	at clojure.lang.RestFn.invoke(RestFn.java:636)
+	at yesql.generate$query_handler.invoke(generate.clj:90)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4871.invoke(generate.clj:134)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4871.invoke(generate.clj:133)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3623)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3622)
+	at clojure.lang.Compiler$DefExpr.eval(Compiler.java:439)
+	at clojure.lang.Compiler.eval(Compiler.java:6787)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 61 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:337)
+	... 56 more
+08-27 15:57:13 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:368)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:351)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2782)
+	at org.h2.mvstore.db.MVTableEngine$Store.<init>(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:98)
+	at org.h2.engine.Database.getPageStore(Database.java:2389)
+	at org.h2.engine.Database.open(Database.java:669)
+	at org.h2.engine.Database.openDatabase(Database.java:266)
+	at org.h2.engine.Database.<init>(Database.java:260)
+	at org.h2.engine.Engine.openSession(Engine.java:60)
+	at org.h2.engine.Engine.openSession(Engine.java:167)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:145)
+	at org.h2.engine.Engine.createSession(Engine.java:128)
+	at org.h2.engine.Engine.createSession(Engine.java:26)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:347)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:108)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at clojure.java.jdbc$get_connection.invoke(jdbc.clj:248)
+	at clojure.java.jdbc$db_query_with_resultset.invoke(jdbc.clj:798)
+	at clojure.java.jdbc$query.doInvoke(jdbc.clj:832)
+	at clojure.lang.RestFn.invoke(RestFn.java:636)
+	at yesql.generate$query_handler.invoke(generate.clj:90)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4871.invoke(generate.clj:134)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4871.invoke(generate.clj:133)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3623)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3622)
+	at clojure.lang.Compiler$DefExpr.eval(Compiler.java:439)
+	at clojure.lang.Compiler.eval(Compiler.java:6787)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 61 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:337)
+	... 56 more
+08-27 16:00:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "2"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4679.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4705.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(form-init1049535032305406404.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(form-init1049535032305406404.clj:4)
+	at monitor.checks.jobs$eval21658.invoke(form-init1049535032305406404.clj:2)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+08-27 16:00:05 jdbc[3]: exception
+org.h2.jdbc.JdbcBatchUpdateException: Hexadecimal string with odd number of characters: "2"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1198)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4679.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4705.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(form-init1049535032305406404.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(form-init1049535032305406404.clj:4)
+	at monitor.checks.jobs$eval21658.invoke(form-init1049535032305406404.clj:2)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "2"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4679.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4705.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(form-init1049535032305406404.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(form-init1049535032305406404.clj:4)
+	at monitor.checks.jobs$eval21658.invoke(form-init1049535032305406404.clj:2)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+08-27 16:03:18 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:368)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:351)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2782)
+	at org.h2.mvstore.db.MVTableEngine$Store.<init>(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:98)
+	at org.h2.engine.Database.getPageStore(Database.java:2389)
+	at org.h2.engine.Database.open(Database.java:669)
+	at org.h2.engine.Database.openDatabase(Database.java:266)
+	at org.h2.engine.Database.<init>(Database.java:260)
+	at org.h2.engine.Engine.openSession(Engine.java:60)
+	at org.h2.engine.Engine.openSession(Engine.java:167)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:145)
+	at org.h2.engine.Engine.createSession(Engine.java:128)
+	at org.h2.engine.Engine.createSession(Engine.java:26)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:347)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:108)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at clojure.java.jdbc$get_connection.invoke(jdbc.clj:248)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:859)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4868.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4873.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(form-init1049535032305406404.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(form-init1049535032305406404.clj:4)
+	at monitor.checks.jobs$eval21733.invoke(form-init1049535032305406404.clj:2)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6745)
+	at clojure.core$eval.invoke(core.clj:3081)
+	at clojure.main$repl$read_eval_print__7099$fn__7102.invoke(main.clj:240)
+	at clojure.main$repl$read_eval_print__7099.invoke(main.clj:240)
+	at clojure.main$repl$fn__7108.invoke(main.clj:258)
+	at clojure.main$repl.doInvoke(main.clj:258)
+	at clojure.lang.RestFn.invoke(RestFn.java:1523)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate$fn__17400.invoke(interruptible_eval.clj:58)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invoke(core.clj:630)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1868)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.tools.nrepl.middleware.interruptible_eval$evaluate.invoke(interruptible_eval.clj:56)
+	at clojure.tools.nrepl.middleware.interruptible_eval$interruptible_eval$fn__17442$fn__17445.invoke(interruptible_eval.clj:191)
+	at clojure.tools.nrepl.middleware.interruptible_eval$run_next$fn__17437.invoke(interruptible_eval.clj:159)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 58 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:337)
+	... 53 more
+08-27 16:15:48 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:368)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:351)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2782)
+	at org.h2.mvstore.db.MVTableEngine$Store.<init>(MVTableEngine.java:162)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:98)
+	at org.h2.engine.Database.getPageStore(Database.java:2389)
+	at org.h2.engine.Database.open(Database.java:669)
+	at org.h2.engine.Database.openDatabase(Database.java:266)
+	at org.h2.engine.Database.<init>(Database.java:260)
+	at org.h2.engine.Engine.openSession(Engine.java:60)
+	at org.h2.engine.Engine.openSession(Engine.java:167)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:145)
+	at org.h2.engine.Engine.createSession(Engine.java:128)
+	at org.h2.engine.Engine.createSession(Engine.java:26)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:347)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:108)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at clojure.java.jdbc$get_connection.invoke(jdbc.clj:248)
+	at clojure.java.jdbc$db_query_with_resultset.invoke(jdbc.clj:798)
+	at clojure.java.jdbc$query.doInvoke(jdbc.clj:832)
+	at clojure.lang.RestFn.invoke(RestFn.java:636)
+	at yesql.generate$query_handler.invoke(generate.clj:90)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:134)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4924.invoke(generate.clj:133)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3623)
+	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3622)
+	at clojure.lang.Compiler$DefExpr.eval(Compiler.java:439)
+	at clojure.lang.Compiler.eval(Compiler.java:6787)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.RT.loadResourceScript(RT.java:371)
+	at clojure.lang.RT.loadResourceScript(RT.java:362)
+	at clojure.lang.RT.load(RT.java:446)
+	at clojure.lang.RT.load(RT.java:412)
+	at clojure.core$load$fn__5448.invoke(core.clj:5866)
+	at clojure.core$load.doInvoke(core.clj:5865)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5671)
+	at clojure.core$load_lib$fn__5397.invoke(core.clj:5711)
+	at clojure.core$load_lib.doInvoke(core.clj:5710)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:632)
+	at clojure.core$load_libs.doInvoke(core.clj:5749)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:632)
+	at clojure.core$require.doInvoke(core.clj:5832)
+	at clojure.lang.RestFn.invoke(RestFn.java:619)
+	at monitor.core$eval73$loading__5340__auto____74.invoke(core.clj:1)
+	at monitor.core$eval73.invoke(core.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6771)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.RT.loadResourceScript(RT.java:371)
+	at clojure.lang.RT.loadResourceScript(RT.java:362)
+	at clojure.lang.RT.load(RT.java:446)
+	at clojure.lang.RT.load(RT.java:412)
+	at clojure.core$load$fn__5448.invoke(core.clj:5866)
+	at clojure.core$load.doInvoke(core.clj:5865)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5671)
+	at clojure.core$load_lib$fn__5397.invoke(core.clj:5711)
+	at clojure.core$load_lib.doInvoke(core.clj:5710)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:632)
+	at clojure.core$load_libs.doInvoke(core.clj:5749)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:632)
+	at clojure.core$require.doInvoke(core.clj:5832)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at user$eval58$fn__60.invoke(form-init1952235932393440931.clj:1)
+	at user$eval58.invoke(form-init1952235932393440931.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6782)
+	at clojure.lang.Compiler.eval(Compiler.java:6772)
+	at clojure.lang.Compiler.load(Compiler.java:7227)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7165)
+	at clojure.main$load_script.invoke(main.clj:275)
+	at clojure.main$init_opt.invoke(main.clj:280)
+	at clojure.main$initialize.invoke(main.clj:308)
+	at clojure.main$null_opt.invoke(main.clj:343)
+	at clojure.main$main.doInvoke(main.clj:421)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]" [50000-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 97 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/workspace-clj/monitor/monitor_dev.db.mv.db [1.4.187/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:773)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:337)
+	... 92 more
+08-27 16:17:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:17:08 jdbc[3]: exception
+org.h2.jdbc.JdbcBatchUpdateException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1198)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:17:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:17:08 jdbc[3]: exception
+org.h2.jdbc.JdbcBatchUpdateException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1198)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:36:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:36:40 jdbc[3]: exception
+org.h2.jdbc.JdbcBatchUpdateException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1198)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:36:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+08-27 16:36:43 jdbc[3]: exception
+org.h2.jdbc.JdbcBatchUpdateException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1198)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+org.h2.jdbc.JdbcSQLException: Hexadecimal string with odd number of characters: "qa6"; SQL statement:
+update service_checks 
+set status = ?,
+    updated_date = ?
+where service_check_id = ?
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = ?) [90003-187]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:970)
+	at org.h2.value.Value.convertTo(Value.java:867)
+	at org.h2.expression.Comparison.getValue(Comparison.java:255)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:86)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Select.queryFlat(Select.java:575)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:685)
+	at org.h2.command.dml.Query.query(Query.java:322)
+	at org.h2.command.dml.Query.query(Query.java:290)
+	at org.h2.expression.ConditionExists.getValue(ConditionExists.java:31)
+	at org.h2.expression.ConditionAndOr.getValue(ConditionAndOr.java:93)
+	at org.h2.expression.Expression.getBooleanValue(Expression.java:178)
+	at org.h2.command.dml.Update.update(Update.java:107)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:78)
+	at org.h2.command.Command.executeUpdate(Command.java:254)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:157)
+	at org.h2.jdbc.JdbcPreparedStatement.executeBatch(JdbcPreparedStatement.java:1183)
+	at clojure.java.jdbc$execute_batch.invoke(jdbc.clj:401)
+	at clojure.java.jdbc$db_do_execute_prepared_statement$fn__4732.invoke(jdbc.clj:733)
+	at clojure.java.jdbc$db_transaction_STAR_.doInvoke(jdbc.clj:584)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.java.jdbc$db_do_execute_prepared_statement.invoke(jdbc.clj:732)
+	at clojure.java.jdbc$db_do_prepared.doInvoke(jdbc.clj:753)
+	at clojure.lang.RestFn.invoke(RestFn.java:464)
+	at clojure.java.jdbc$execute_BANG_$execute_helper__4758.invoke(jdbc.clj:855)
+	at clojure.java.jdbc$execute_BANG_.doInvoke(jdbc.clj:860)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at yesql.generate$execute_handler.invoke(generate.clj:77)
+	at yesql.generate$generate_query_fn$real_fn__4921.invoke(generate.clj:120)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:139)
+	at yesql.generate$generate_query_fn$query_wrapper_fn__4926.invoke(generate.clj:138)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at monitor.db.queries$update_service_check_status.invoke(queries.clj:31)
+	at monitor.checks.jobs$jdbc_check_job.invoke(jobs.clj:14)
+	at monitor.checks.jobs$schedule_jobs$fn__18453.invoke(jobs.clj:24)
+	at immutant.scheduling.joda$schedule_seq$f__18425$fn__18426.invoke(joda.clj:36)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at org.projectodd.wunderboss.singleton.SimpleContext.run(SimpleContext.java:42)
+	at org.projectodd.wunderboss.scheduling.RunnableJob.execute(RunnableJob.java:30)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)

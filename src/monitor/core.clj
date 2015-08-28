@@ -33,7 +33,7 @@
   
   (timbre/info "Resetting environment status...") (queries/reset-checks)
   (timbre/info "Setup environments:" (count (queries/setup-envs)))
-  (timbre/info "Setup service checks:" (count (queries/setup-checks)))
+  (timbre/info "Setup service checks:" (count (queries/setup-checks jobs/checks)))
   (jobs/start-jobs)
   
   (let [port (parse-port args)]

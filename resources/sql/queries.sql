@@ -4,10 +4,16 @@ insert into service_checks (environment_id, service_check_id, description, updat
 values (:environment_id, :service_check_id, :description, :updated_date, :status)
 
 --name:update-service-check-status!
--- updates the service-check status
+-- updates the service-check status and date
 update service_checks 
-set status = :status 
-where id = :id
+set status = :status,
+    updated_date = :updated_date
+where service_check_id = :sc_id
+and exists (
+    select service_check_id
+    from environments 
+    where service_checks.environment_id = environments.id 
+    and environments.KEY = :env_key) 
 
 --name:get-service-checks
 -- selects all services check results
