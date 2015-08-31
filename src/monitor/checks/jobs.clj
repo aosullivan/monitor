@@ -21,7 +21,7 @@
                                            (:sc_id check) 
                                            status 
                                            (new java.util.Date))
-      (timbre/info env "database connection:" status)))
+      (timbre/info (:description check) env status)))
 
   (defn at-interval [interval offset] 
     "Return a joda interval of the specified length and offset"
@@ -30,10 +30,12 @@
           every (clj-time.core/seconds interval)]
       (clj-time.periodic/periodic-seq at every)))
 
-   (defn schedule-job [env check offset]
-     "Schedule the job to run at an interval at a future time"
+  (defn schedule-job [env check offset]
+    "Schedule the job to run at an interval at a future time"
+    (timbre/info "Scheduled:" env (:description check))
      (let [check-job (joda/schedule-seq #(run-check env check) 
-                                        (at-interval 15 offset))]
+                                        (at-interval (:interval check) 
+                                                     offset))]
        (sch/schedule
          (fn []
            (timbre/info "unscheduling" check-job)
@@ -45,10 +47,9 @@
      (loop [env-idx 0
             offset 0]
        (when (< env-idx (count envs))
-         (timbre/info "Check:" env-idx)
-         (doseq [check-idx (range 2)] 
+         (doseq [check checks] 
            (schedule-job (nth envs env-idx) 
-                         (nth checks check-idx) 
+                         check 
                          offset))
          (recur (+ env-idx 1) 
                 (+ offset 5)))))
