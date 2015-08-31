@@ -1,6 +1,6 @@
 (defproject monitor "0.1.0-SNAPSHOT"
 
-  :description "Pings various services and displays results"
+  :description "Pings various http and jdbc services and displays results"
   :url "https://github.com/aosullivan/monitor"
 
   :dependencies [[org.clojure/clojure "1.7.0"]
@@ -29,7 +29,10 @@
                  [com.h2database/h2 "1.4.187"]
                  [com.sybase/jconn4 "26792"]
                  [sonian/carica "1.1.0"]
-                 [org.immutant/immutant "2.0.2"]]
+                 [org.immutant/immutant "2.0.2"]
+                 [clj-webdriver "0.6.1"]
+                 [org.clojure/core.cache "0.6.3"]
+                 [org.clojure/core.memoize "0.5.6" :exclusions [org.clojure/core.cache]]] ;https://github.com/LightTable/LightTable/issues/794
 
   :min-lein-version "2.0.0"
   :uberjar-name "monitor.jar"
@@ -56,7 +59,6 @@
          :uberwar-name "monitor.war"}
 
   
-  
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}
@@ -66,7 +68,6 @@
                         [ring/ring-devel "1.3.2"]
                         [pjstadig/humane-test-output "0.7.0"]
                         ]
-         
          
          
          :repl-options {:init-ns monitor.core}

@@ -52,14 +52,12 @@ To start a web server for the application, run:
 
 ## TODO
 
-match the checks to its id to update the right one....
-when a check completes, update the date
-web checks
 Error handling for jobs
 Align env status to checks status and start at WAITING / Colours
 Are db connections reused?
 Print the actual error somewhere on the UI for failed tests
-move all job config times etc to a struct
 error if server is down
+check for presence of phantom.js
+don't log in again for a while if the ui login fails, don't lock accounts
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO

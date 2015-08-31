@@ -8,8 +8,11 @@
             [monitor.db.migrations :as migrations]
             [taoensso.timbre :as timbre]
             [environ.core :refer [env]]
-            [immutant.scheduling :as sch])
-  
+            [immutant.scheduling :as sch]
+            [clj-webdriver.taxi :refer [set-driver!]]
+            [clj-webdriver.driver :refer [init-driver]])
+  (:import (org.openqa.selenium.phantomjs PhantomJSDriver)
+           (org.openqa.selenium.remote DesiredCapabilities))
   (:gen-class))
 
 (defonce server (atom nil))
@@ -32,11 +35,21 @@
     (.stop @server)
     (reset! server nil)))
 
+(defn start-web-driver [] 
+  (set-driver!
+  (init-driver
+      {:webdriver
+        (PhantomJSDriver. 
+          (doto (DesiredCapabilities.)
+                  (.setCapability "phantomjs.cli.args" 
+                                  (into-array String ["--ssl-protocol=any"]))))})))
+
 (defn start-app [args]
   
   (timbre/info "Resetting environment status...") (queries/reset-checks)
   (timbre/info "Setup environments:" (count (queries/setup-envs)))
   (timbre/info "Setup service checks:" (count (queries/setup-checks checks)))
+  (start-web-driver)
   (jobs/start-jobs)
   
   (let [port (parse-port args)]

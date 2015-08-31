@@ -9,8 +9,10 @@
   [{:sc_id 1
     :description "Login to UI as 'larisab'"
     :interval 25
-    :check-fn (fn [env] (check-login env)  true)}
+    :check-fn (fn [env] (check-login env))
+    }
    {:sc_id 2
     :description "Log into database as service account"
     :interval 15
-    :check-fn (fn [env] (check-select env))}])
+    :check-fn (fn [env] (check-select env))
+    }])
