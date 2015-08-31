@@ -7,7 +7,8 @@
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]
             [taoensso.timbre :as timbre]
-            [environ.core :refer [env]])
+            [environ.core :refer [env]]
+            [immutant.scheduling :as sch])
   
   (:gen-class))
 
@@ -25,6 +26,7 @@
              :join? false})))
 
 (defn stop-server []
+  (sch/stop)
   (when @server
     (destroy)
     (.stop @server)

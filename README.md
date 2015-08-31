@@ -60,5 +60,6 @@ Align env status to checks status and start at WAITING / Colours
 Are db connections reused?
 Print the actual error somewhere on the UI for failed tests
 move all job config times etc to a struct
+error if server is down
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO

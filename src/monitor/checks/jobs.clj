@@ -9,7 +9,9 @@
             clj-time.core
             clj-time.periodic))     
 
-  (def envs (vec (keys (config))))
+  (def envs 
+    "Read config.edn for each environment config"  
+    (vec (keys (config))))
   
   (defn run-check [env check] 
     "Run check on the target environment and update the status in the db"
@@ -28,18 +30,26 @@
           every (clj-time.core/seconds interval)]
       (clj-time.periodic/periodic-seq at every)))
 
-   (defn schedule-job [env offset]
-    (let [beep (joda/schedule-seq #(run-check env (second checks)) (at-interval 10 offset))]
-      (sch/schedule
-        (fn []
-          (println "unscheduling")
-          (sch/stop beep))
-        (in 35 :seconds))))
+   (defn schedule-job [env check offset]
+     "Schedule the job to run at an interval at a future time"
+     (let [check-job (joda/schedule-seq #(run-check env check) 
+                                        (at-interval 15 offset))]
+       (sch/schedule
+         (fn []
+           (timbre/info "unscheduling" check-job)
+           (sch/stop check-job))
+         (in 60 :seconds))))
 
    (defn start-jobs [] 
-     "Start jobs with 5s offset times.  This should be a list comprehension."
-     (loop [env-id 0
+     "Start all jobs with 5s offset increments for each successive job."
+     (loop [env-idx 0
             offset 0]
-       (when (< env-id (count envs))
-         (schedule-job (nth envs env-id) offset)
-         (recur (+ env-id 1) (+ offset 5)))))
+       (when (< env-idx (count envs))
+         (timbre/info "Check:" env-idx)
+         (doseq [check-idx (range 2)] 
+           (schedule-job (nth envs env-idx) 
+                         (nth checks check-idx) 
+                         offset))
+         (recur (+ env-idx 1) 
+                (+ offset 5)))))
+   
