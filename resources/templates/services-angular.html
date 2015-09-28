@@ -31,7 +31,7 @@
 					<tr ng-repeat="serviceCheck in serviceChecks | filter:{ environment_id: environment.id} ">
 						<td>{{serviceCheck.service_check_description}}</td>
 						<td>{{serviceCheck.updated_date|date:"yyyy-MM-dd HH:mm:ss"}}</td>
-						<td>{{serviceCheck.status}}</td>
+						<td ng-class='{red : serviceCheck.status == "FAILED", black: !serviceCheck.status == "FAILED"}'>{{serviceCheck.status}}</td>
 					</tr>
 				</table>
 	

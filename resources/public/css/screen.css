@@ -19,3 +19,13 @@ body {
      font-size: 14px;
      color: #333;
 }
+
+.red {
+    color: red; 
+    font-weight: bold;
+}
+
+.black {
+    color: black;
+    
+}

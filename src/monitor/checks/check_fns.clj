@@ -11,8 +11,11 @@
               (config env :jdbc) 
                         ["select top 5 * from entity order by entity_id desc"]))))
 
-  (defn check-login [env]
-    (locking *driver*  
+  (defn check-login [env] false)
+  
+  (defn check-login1 [env]
+    "log in to ui with web driver"
+    (locking *driver*  ;because webdriver is single threaded
       (try
         (to (config env :webui :url))
         (wait-until #(exists? "#loginForm"))

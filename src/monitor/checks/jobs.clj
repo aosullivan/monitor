@@ -32,26 +32,25 @@
 
   (defn schedule-job [env check offset]
     "Schedule the job to run at an interval at a future time"
-    (timbre/info "Scheduled:" env (:description check))
-     (let [check-job (joda/schedule-seq #(run-check env check) 
-                                        (at-interval (:interval check) 
-                                                     offset))]
+    (let [check-job (joda/schedule-seq #(run-check env check) 
+                                       (at-interval (:interval check) offset))]
        (sch/schedule
          (fn []
            (timbre/info "unscheduling" check-job)
            (sch/stop check-job))
-         (in 60 :seconds))))
+         (in 120 :seconds))))  ;this isn't working
 
    (defn start-jobs [] 
-     "Start all jobs with 5s offset increments for each successive job."
-     (loop [env-idx 0
-            offset 0]
-       (when (< env-idx (count envs))
-         (doseq [check checks] 
-           (schedule-job (nth envs env-idx) 
+     "Start all jobs with time offset increments for each successive job to spread them out."
+     (let [i (atom 0)]
+         (doseq [check checks
+                 env envs]
+           (swap! i inc)  
+           (timbre/info "Scheduling job:" env (:description check) "every" (:interval check) "secs, starting in" (* 10 @i) "secs")
+           (schedule-job env 
                          check 
-                         offset))
-         (recur (+ env-idx 1) 
-                (+ offset 10)))))  
-   
-    
+                         (* 10 @i)))))
+
+
+
+
