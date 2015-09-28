@@ -1,5 +1,6 @@
 (ns monitor.checks.check-fns
   (:require [clojure.java.jdbc :as jdbc]
+            [taoensso.timbre :as timbre]
             [carica.core :refer [config]]
             [clj-webdriver.taxi :refer :all]))
 
@@ -10,18 +11,20 @@
               (config env :jdbc) 
                         ["select top 5 * from entity order by entity_id desc"]))))
 
-  (defn check-login [env] false)
-  
-  (defn check-login1 [env] 
-      (to "https://q6cl.examen.com/aui/index.html#/login")
-    (wait-until #(exists? "#loginForm"))
-    (input-text "#username" "larisab")
-    (input-text "#password" "go")
-    (click "#btnSignIn")
-    (try
-      (wait-until #(exists? "#modal_popup_div"))
-      (exists? "#modal_popup_div")
+  (defn check-login [env]
+    (locking *driver*  
+      (try
+        (to (config env :webui :url))
+        (wait-until #(exists? "#loginForm"))
+        (input-text "#username" (config env :webui :username))
+        (input-text "#password" (config env :webui :password))
+        (click "#btnSignIn")
+        (wait-until #(exists? "#modal_popup_div"))
+        (exists? "#modal_popup_div")
+        true
       (catch  org.openqa.selenium.WebDriverException e
-        (take-screenshot) 
-        false)))
+        (timbre/error (.getMessage e)(take-screenshot)) ;TODO access this via ui link on failure, and stop checking till fixed
+        false))))
+
+
   

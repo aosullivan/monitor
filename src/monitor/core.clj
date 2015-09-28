@@ -6,6 +6,7 @@
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]
+            [clojure.java.shell :refer :all ]
             [taoensso.timbre :as timbre]
             [environ.core :refer [env]]
             [immutant.scheduling :as sch]
@@ -36,6 +37,13 @@
     (reset! server nil)))
 
 (defn start-web-driver [] 
+  
+  (try
+    (sh "phantomjs.exe")
+  (catch java.io.IOException e 
+    (prn "phantomjs.exe not found on system path: exiting" e)
+    (System/exit 0)))
+  
   (set-driver!
   (init-driver
       {:webdriver

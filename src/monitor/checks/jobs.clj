@@ -52,6 +52,6 @@
                          check 
                          offset))
          (recur (+ env-idx 1) 
-                (+ offset 5)))))
+                (+ offset 10)))))  
    
     
