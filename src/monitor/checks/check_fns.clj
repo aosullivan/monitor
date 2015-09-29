@@ -11,9 +11,9 @@
               (config env :jdbc) 
                         ["select top 5 * from entity order by entity_id desc"]))))
 
-  (defn check-login [env] false)
+  (defn check-login1 [env] false)
   
-  (defn check-login1 [env]
+  (defn check-login [env]
     "log in to ui with web driver"
     (locking *driver*  ;because webdriver is single threaded
       (try

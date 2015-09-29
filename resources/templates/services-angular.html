@@ -9,13 +9,14 @@
 	{{now|date:longDateTime}} {% verbatim %}
 
 	<h3 class="sub-header">Environments</h3>
-
-	<div ng-app="monitor" ng-controller="environmentController">
+	
+	<div ng-app="monitor" ng-controller="environmentController" >
 
 		<accordion close-others="oneAtATime"> 
-			<accordion-group
-				ng-repeat="environment in environments"
-				heading="{{environment.description}}">
+			<accordion-group ng-repeat="environment in environments">
+				<accordion-heading>
+				    <span ng-class="envcheck(environment.id)">{{environment.description}}</span>
+				</accordion-heading>
 	
 				<p>Service checks run against this environment:</p>
 		

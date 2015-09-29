@@ -70,6 +70,15 @@
 
                  $scope.reload = function() { $http.get(scUrl).success( function(response) { 
                 	 $scope.serviceChecks = response } ); }
+                 
+                 $scope.envcheck = function(env_id) { 
+                	 var failure = false;
+                	 angular.forEach($scope.serviceChecks, function(serviceCheck, key) {
+	                     if (serviceCheck.environment_id ==env_id && serviceCheck.status=='FAILED'){
+	                         failure = true;
+	                     }});
+                	     return (failure)? 'red' : 'black';}
+                     
 
              });
         </script>    

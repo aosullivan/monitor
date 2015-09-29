@@ -8,7 +8,7 @@ body {
 .accordion .ui-accordion-header, .noStyleAccordion .ui-accordion-content {
      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
      font-size: 14px;
-     color: #333;
+     /* color: #333; */
      background: #FFFFEF;
 }
 
@@ -17,7 +17,7 @@ body {
 * {
      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
      font-size: 14px;
-     color: #333;
+     /* color: #333; */
 }
 
 .red {
