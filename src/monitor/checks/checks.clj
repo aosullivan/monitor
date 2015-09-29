@@ -12,6 +12,6 @@
     :check-fn (fn [env] (check-login env))}
    
    {:sc_id 2
-    :description "Log into database as service account"
+    :description "Log into database as service account and run a query"
     :interval 15
     :check-fn (fn [env] (check-select env))}])

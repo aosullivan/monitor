@@ -52,12 +52,11 @@ To start a web server for the application, run:
 
 ## TODO
 
-Error handling for jobs
-Align env status to checks status and start at WAITING / Colours
-Are db connections reused?
-Print the actual error somewhere on the UI for failed tests
-error if server is down
-check for presence of phantom.js
-don't log in again for a while if the ui login fails, don't lock accounts
+if the ui login fails, pause the job and offer restart button - don't lock accounts
+reload screen automatically
+are db connections reused?
+Print the actual error somewhere on the UI for failed tests and LINK to any screenshots
+cd server check
+remove database completely, its all temp state
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO
