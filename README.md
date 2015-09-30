@@ -52,11 +52,19 @@ To start a web server for the application, run:
 
 ## TODO
 
-if the ui login fails, pause the job and offer restart button - don't lock accounts
+checks
+- cd server
+- rest api
+- other rest api
+- edi ejb
+- mid ejb
+
+if the ui login fails, pause the job ONLY IF it was a password error - don't lock accounts
 reload screen automatically
 are db connections reused?
 Print the actual error somewhere on the UI for failed tests and LINK to any screenshots
-cd server check
 remove database completely, its all temp state
+check fiddler for duplicate requests
+make WAITING orange
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO

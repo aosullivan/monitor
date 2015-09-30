@@ -1,4 +1,4 @@
-(ns monitor.checks.jobs
+(ns monitor.jobs.jobs
   (:require [monitor.db.queries :as queries]
             [monitor.checks.checks :refer [checks]]
             [taoensso.timbre :as timbre]

@@ -2,7 +2,7 @@
   (:require [monitor.handler :refer [app init destroy]]
             [monitor.db.queries :as queries]
             [monitor.checks.checks :refer [checks]]
-            [monitor.checks.jobs :as jobs]
+            [monitor.jobs.jobs :as jobs]
             [qbits.jet.server :refer [run-jetty]]
             [ring.middleware.reload :as reload]
             [monitor.db.migrations :as migrations]

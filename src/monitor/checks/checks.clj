@@ -1,6 +1,7 @@
 (ns monitor.checks.checks
   (:require [carica.core :refer [config]]
-            [monitor.checks.check-fns :refer :all]))
+            [monitor.checks.check-html :refer :all]
+            [monitor.checks.check-jdbc :refer :all]))
 
 (def checks 
   "Defines an id, description, interval (secs) and function for each check.  
