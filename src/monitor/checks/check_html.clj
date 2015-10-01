@@ -4,10 +4,10 @@
             [clj-webdriver.taxi :refer :all]))
 
   (defn password-incorrect []
-    "check the html response in webdriver for the incorrect pwd msg"
-    (let [incorrectCreds (find-element {:ng-message "incorrectCreds"})]
-            (and (not (nil? incorrectCreds))
-                 (= (text incorrectCreds) "The username/password entered is invalid" ))))
+    "check the html response in webdriver for the incorrect pwd notification"
+    (let [incorrect-creds-span (find-element {:ng-message "incorrectCreds"})]
+            (and (not (nil? incorrect-creds-span))
+                 (= (text incorrect-creds-span) "The username/password entered is invalid" ))))
   
   (defn check-login [env]
     "log in to ui with web driver"
@@ -17,7 +17,6 @@
         (when (exists? "#loginForm")
           (input-text "#username" (config env :webui :username))
           (input-text "#password" (config env :webui :password))
-          ;(input-text "#password" "foo") ;for testing
           (click "#btnSignIn")
           
           (if (password-incorrect)
@@ -29,8 +28,3 @@
       (catch  org.openqa.selenium.WebDriverException e
         (timbre/error (.getMessage e)(take-screenshot)) ;TODO access this via ui link on failure
         false))))
-
-  ;(password-incorrect)
-  ;(check-login :qa6)
-  ;(def env :qa6)
-  

@@ -10,7 +10,7 @@
             [taoensso.timbre :as timbre]
             [environ.core :refer [env]]
             [immutant.scheduling :as sch]
-            [clj-webdriver.taxi :refer [set-driver!]]
+            [clj-webdriver.taxi :refer [set-driver! implicit-wait]]
             [clj-webdriver.driver :refer [init-driver]])
   (:import (org.openqa.selenium.phantomjs PhantomJSDriver)
            (org.openqa.selenium.remote DesiredCapabilities))
@@ -50,7 +50,8 @@
         (PhantomJSDriver. 
           (doto (DesiredCapabilities.)
                   (.setCapability "phantomjs.cli.args" 
-                                  (into-array String ["--ssl-protocol=any"]))))})))
+                                  (into-array String ["--ssl-protocol=any"]))))}))
+  (implicit-wait 10000))
 
 (defn start-app [args]
   

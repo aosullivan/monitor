@@ -52,19 +52,22 @@ To start a web server for the application, run:
 
 ## TODO
 
-checks
+** checks
 - cd server
 - rest api
 - other rest api
 - edi ejb
 - mid ejb
 
-show disabled job status in UI
 reload screen automatically
-are db connections reused?
-Print the actual error somewhere on the UI for failed tests and LINK to any screenshots
-remove database completely, its all temp state
+For disabled, link to a popup for reason
+For failed, link to a popup with screenshot/error
 check fiddler for duplicate requests
 make WAITING orange
+remove unscheduling!
+are db connections reused?
+db password failure should disable
+remove database completely, its all temp state
+
 
 jdbc:h2:file:C:/workspace-clj/monitor/monitor_dev.db;FILE_LOCK=NO

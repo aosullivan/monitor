@@ -10,43 +10,50 @@
             clj-time.periodic))     
 
   (def envs 
-    "Read config.edn for each environment config"  
+    "Read config.edn for each environment id"  
     (vec (keys (config))))
   
   (defn enabled-key [env check] 
-    "construct they key against which the mutable state of the check is stored in the atom"
+    "construct the key against which the mutable state of the check is stored in the atom"
     [(keyword (str (:sc_id check))) env])
   
-  (def checks-atom 
+  (def checks-enabled-atom 
     "atomic mutability to allow enabled/disabled state changes" 
     (atom (into {} (for [check checks
                          env envs] [(enabled-key env check) (:enabled check)]))))
   
   (defn is-enabled? [env check]
     "gets the enabled value for the check from the enabled map" 
-    (@checks-atom (enabled-key env check)))
+    (@checks-enabled-atom (enabled-key env check)))
  
+  (defn update-status [env check status] 
+    "save status to db"
+    (queries/update-service-check-status (name env) 
+                                         (:sc_id check) 
+                                         status 
+                                         (new java.util.Date)))
+  
   (defn set-disabled [env check]
-    (swap! checks-atom assoc (enabled-key env check) false)  ;needs the list element, not the property)
+    "set global atom enabled state"
+    (swap! checks-enabled-atom assoc (enabled-key env check) false)  
+    (update-status env check "DISABLED")
     (timbre/info "Invalid credentials for " (:description check) env ": disabled check")
-    (timbre/debug @checks-atom))
+    (timbre/debug @checks-enabled-atom))
   
   (defn run-check [env check] 
-    "Run check on the target environment and update the status in the db"
+    "Run check on the target environment and update the status in the db
+     Disable the check if exception reports bad credentials so we don't lock any accounts"
     (try 
       (let [status (if ((:check-fn check) env) "OK" "FAILED")]
-        (queries/update-service-check-status (name env) 
-                                             (:sc_id check) 
-                                             status 
-                                             (new java.util.Date))
-        (timbre/info "Ran check:" (:description check) env status))
+        (update-status env check status)
+        (timbre/info "Ran check:" (name env) (:description check) ":" status))
     (catch clojure.lang.ExceptionInfo e
       (if (= :bad-credentials (-> e ex-data :type))
         (set-disabled env check) 
         (timbre/error e)))))
     
   (defn skip-check [env check]
-    (timbre/info "Skipped disabled check:" (:description check) env))
+    (timbre/info "Skipped disabled check:" (name env) (:description check)))
   
   (defn run-check-if-enabled [env check] 
     "Run check if enabled"
@@ -76,6 +83,8 @@
      (let [i (atom 0)]
          (doseq [check checks
                  env envs]
+           (if (not (is-enabled? env check))
+             (update-status env check "DISABLED"))
            (swap! i inc)  
            (timbre/info "Scheduling job:" env (:description check) 
                         "every" (:interval check) "secs, starting in" (* 10 @i) "secs")
@@ -87,5 +96,4 @@
 ;(def check (first checks))
 ;(schedule-job :qa6 (first @checks-atom) 10)
 ;(assoc checks :enabled false)
-
 
