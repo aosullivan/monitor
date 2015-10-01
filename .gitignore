@@ -18,3 +18,4 @@ monitor_dev.db.trace.db
 *.prefs
 resources/migrations/qa6
 *.prefs
+*.prefs

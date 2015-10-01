@@ -59,7 +59,7 @@ checks
 - edi ejb
 - mid ejb
 
-if the ui login fails, pause the job ONLY IF it was a password error - don't lock accounts
+show disabled job status in UI
 reload screen automatically
 are db connections reused?
 Print the actual error somewhere on the UI for failed tests and LINK to any screenshots

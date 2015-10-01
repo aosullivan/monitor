@@ -31,6 +31,7 @@
                  [sonian/carica "1.1.0"]
                  [org.immutant/immutant "2.0.2"]
                  [clj-webdriver "0.6.1"]
+                 [slingshot "0.12.2"]
                  [org.clojure/core.cache "0.6.3"]
                  [org.clojure/core.memoize "0.5.6" :exclusions [org.clojure/core.cache]]] ;https://github.com/LightTable/LightTable/issues/794
 
